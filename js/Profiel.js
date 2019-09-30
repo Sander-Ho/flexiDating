@@ -4,34 +4,48 @@ const rooturl = "https://scrumserver.tenobe.org/scrum/api"
 const errorBericht = document.getElementById("errorBericht");
 const profielDiv = document.getElementById("profiel");
 
-let gebruikerId = 16;   /* id van de gebruiker */
-let profielId = 24;     /* id van het te bezoeken profiel */
+let gebruikerId;   /* id van de gebruiker */
+let profielId;
 
 
-fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
+document.getElementById("bekijkProfiel").onclick = function () {
+    profielId = document.getElementById("profielIdInput").value;
+
+    if (document.getElementById("eigenProfiel").checked) {
+        gebruikerId = profielId;
+    }
+
+    ToonVolledigProfiel(profielId);
+}
+
+
+
+function ToonVolledigProfiel(profielId) {
+    fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
     .then(function (response) { 
         if (response.status == 200)
-            response.json().then(ToonProfiel); 
+            response.json().then(ToonGegevensOpProfiel); 
         else {
+            document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
             profielDiv.style.display = "";
             errorBericht.style.display = "block";
 
-            errorBericht.innerText = response.statusText;
+            errorBericht.innerText = "Profiel bestaat niet.";
         }
     })
     .catch(function (error) {
         profielDiv.style.display = "";
         errorBericht.style.display = "block";
         errorBericht.innerText = error.name;
-
-        console.log(error);
     });
+}
 
 
-function ToonProfiel(data) {
+function ToonGegevensOpProfiel(data) {
     errorBericht.style.display = "";
     profielDiv.style.display = "block";
 
+    document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
     document.getElementById("nickname").innerText = data.nickname;
     document.getElementById("profielfoto").setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + data.foto);
     document.getElementById ("profielfoto").setAttribute("alt", data.nickname);
