@@ -23,8 +23,6 @@ document.getElementById("bekijkProfiel").onclick = function () {
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
     .then(function (response) { 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (response.status == 200){
             profielDiv.style.display = "block";
             errorBericht.style.display = "none";
@@ -33,47 +31,60 @@ function ToonVolledigProfiel(profielId) {
         else {
             document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
             profielDiv.style.display = "none";
-=======
-        if (response.status == 200)
-=======
-        if (response.status == 200){
-            profielDiv.style.display = "block";
-            errorBericht.style.display = "none";
->>>>>>> registreren
-            response.json().then(ToonGegevensOpProfiel); 
-        }   
-        else {
-            document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
-<<<<<<< HEAD
-            profielDiv.style.display = "";
->>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
-=======
-            profielDiv.style.display = "none";
->>>>>>> registreren
             errorBericht.style.display = "block";
 
             errorBericht.innerText = "Profiel bestaat niet.";
         }
     })
     .catch(function (error) {
-<<<<<<< HEAD
-<<<<<<< HEAD
         profielDiv.style.display = "none";
-=======
-        profielDiv.style.display = "";
->>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
-=======
-        profielDiv.style.display = "none";
->>>>>>> registreren
         errorBericht.style.display = "block";
         errorBericht.innerText = error.name;
     });
 }
-
+function BerekenSterrenbeeld(datum) {
+    const geboortedatum = new Date(datum);
+    const geboortedag = geboortedatum.getDay();
+    const geboortemaand = geboortedatum.getMonth();
+//Steenbok 22 december tot 19 januari
+if((geboortedag >= 22 && geboortemaand === 12) || (geboortedag <= 19 && geboortemaand === 1))
+return "Steenbok";
+// Waterman 20 januari tot 18 februari
+if((geboortedag >= 20 && geboortemaand === 1) || (geboortedag <= 18 && geboortemaand === 2))
+return "Waterman";
+// Vissen 19 februari tot 20 maart
+if((geboortedag >= 19 && geboortemaand === 2) || (geboortedag <= 20 && geboortemaand === 3))
+return "Vissen";
+// Ram 21 maart tot 19 april
+if((geboortedag >= 21 && geboortemaand === 3) || (geboortedag <= 19 && geboortemaand === 4))
+return "Ram";
+// Stier 20 april tot 20 mei
+if((geboortedag >= 20 && geboortemaand === 4) || (geboortedag <= 20 && geboortemaand === 5))
+return "Stier";
+// Tweelingen 21 mei tot 20 juni
+if((geboortedag >= 21 && geboortemaand === 5) || (geboortedag <= 20 && geboortemaand === 6))
+return "Tweelingen";
+// Kreeft 21 juni tot 22 juli
+if((geboortedag >= 21 && geboortemaand === 6) || (geboortedag <= 22 && geboortemaand === 7))
+return "Kreeft";
+// Leeuw 23 juli tot 22 augustus
+if((geboortedag >= 20 && geboortemaand === 7) || (geboortedag <= 18 && geboortemaand === 8))
+return "Leeuw";
+// Maagd 23 augustus tot 22 september
+if((geboortedag >= 23 && geboortemaand === 8) || (geboortedag <= 22 && geboortemaand ===9))
+return "Maagd";
+// Weegschaal 23 september tot 22 oktober
+if((geboortedag >= 23 && geboortemaand === 9) || (geboortedag <= 22 && geboortemaand === 10))
+return "Weegschaal";
+// Schorpioen 23 oktober tot 21 november
+if((geboortedag >= 23 && geboortemaand === 10) || (geboortedag <= 21 && geboortemaand === 11))
+return "Schorpioen";
+// Boogschutter 22 november tot 21 december
+if((geboortedag >= 22 && geboortemaand === 11) || (geboortedag <= 21 && geboortemaand === 12))
+return "Boogschutter";
+}
 
 function ToonGegevensOpProfiel(data) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
     document.getElementById("nickname").innerText = "Gebruikersnaam: " + data.nickname;
     document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
@@ -84,38 +95,12 @@ function ToonGegevensOpProfiel(data) {
     document.getElementById("haarkleur").innerText = "Haarkleur: " + data.haarkleur;
     document.getElementById("gewicht").innerText = "Gewicht: " + data.gewicht;
     document.getElementById("grootte").innerText = "Grootte: " + data.grootte;
-    
+    const sterrenbeeld = BerekenSterrenbeeld(data.geboortedatum);
+    document.getElementById("sterrenbeeld").innerText = "sterrenbeeld: " + sterrenbeeld;
+    document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png";
     if (gebruikerId === profielId /* || ontgrendeld? */) {
         document.getElementById("naam").innerText = "Naam: " + data.voornaam + " " + data.familienaam;
         document.getElementById("geboortedatum").innerText = "Geboortedatum: " + data.geboortedatum;
         document.getElementById("email").innerText = "E-Mail: " + data.email;
-=======
-    errorBericht.style.display = "";
-    profielDiv.style.display = "block";
-
-=======
->>>>>>> registreren
-    document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
-    document.getElementById("nickname").innerText = "Gebruikersnaam: " + data.nickname;
-    document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
-    document.getElementById ("profielfoto").setAttribute("alt", data.nickname);
-    document.getElementById("beroep").innerText = "Beroep: " + data.beroep;
-    document.getElementById("sexe").innerText = "Geslacht: " + (data.sexe == "m" ? "Man" : "Vrouw");
-    document.getElementById("oogkleur").innerText = "Oogkleur: " + data.oogkleur;
-    document.getElementById("haarkleur").innerText = "Haarkleur: " + data.haarkleur;
-    document.getElementById("gewicht").innerText = "Gewicht: " + data.gewicht;
-    document.getElementById("grootte").innerText = "Grootte: " + data.grootte;
-    
-    if (gebruikerId === profielId /* || ontgrendeld? */) {
-<<<<<<< HEAD
-        document.getElementById("naam").innerText = data.voornaam + " " + data.familienaam;
-        document.getElementById("geboortedatum").innerText = data.geboortedatum;
-        document.getElementById("email").innerText = data.email;
->>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
-=======
-        document.getElementById("naam").innerText = "Naam: " + data.voornaam + " " + data.familienaam;
-        document.getElementById("geboortedatum").innerText = "Geboortedatum: " + data.geboortedatum;
-        document.getElementById("email").innerText = "E-Mail: " + data.email;
->>>>>>> registreren
     }
-}
+} 
