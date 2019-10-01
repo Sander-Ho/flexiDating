@@ -4,9 +4,18 @@
 }
 
 .profielKlein {
-    display: block;
+    width: 240px;
+    height: 474px;
+    margin: 2px;
+    padding: 5px;
     border: 1px solid black;
+    display: block;
     float: left;
+}
+
+.profielKlein a {
+    text-decoration: none;
+    color: black;
 }
 
 .profielKlein img {

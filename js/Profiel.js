@@ -18,6 +18,11 @@ document.getElementById("bekijkProfiel").onclick = function () {
     ToonVolledigProfiel(profielId);
 }
 
+let qs = decodeURIComponent(window.location.search);
+qs = qs.substring(1);
+profielId = qs.split('=');
+ToonVolledigProfiel(profielId[1]);
+
 
 
 function ToonVolledigProfiel(profielId) {

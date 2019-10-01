@@ -100,10 +100,11 @@ function ToonResultaten(data) {
 
         for (const gebruiker of data) {
             const li = document.createElement("li");
-            let element = document.createElement("p");
+            let element = document.createElement("a");
     
             li.setAttribute("class", "profielKlein");
             element.innerText = gebruiker.nickname;
+            element.setAttribute("href", "profiel.html?profielId=" + gebruiker.id);
             li.appendChild(element);
     
             element = document.createElement("img");
