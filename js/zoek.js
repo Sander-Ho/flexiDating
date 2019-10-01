@@ -21,40 +21,27 @@ document.getElementById("zoek").onclick = function () {
     }
 
     if ((element = document.getElementById("beroep")).value !== "") {
-        if (url[url.length - 1] != '&')
-            url += "&";
-        url += "beroep=" + element.value;
+        url += "&beroep=" + element.value;
 
         if (document.getElementById("beroepFuzzy").checked)
             url += "&beroepFuzzy=1";
     }
 
-    if (url[url.length - 1] != '&')
-            url += "&";
     element = document.getElementById("sexe");
-    url += "sexe=" + element.options[element.selectedIndex].value;
+    url += "&sexe=" + element.options[element.selectedIndex].value;
 
-    if ((element = document.getElementById("haarkleur")).value !== "") {
-        if (url[url.length - 1] != '&')
-            url += "&";
-        url += "haarkleur=" + element.value;
-    }
+    if ((element = document.getElementById("haarkleur")).value !== "")
+        url += "&haarkleur=" + element.value;
 
-    if ((element = document.getElementById("oogkleur")).value !== "") {
-        if (url[url.length - 1] != '&')
-            url += "&";
-        url += "oogkleur=" + element.value;
-    }
+    if ((element = document.getElementById("oogkleur")).value !== "")
+        url += "&oogkleur=" + element.value;
 
     if ((element = document.getElementById("grootte")).value != 0) {
         let operatorSelect = document.getElementById("grootteOperator");
         let operator = operatorSelect.options[operatorSelect.selectedIndex].value;
         let maxValue = document.getElementById("maxGrootte").value;
 
-        if (url[url.length - 1] != '&')
-            url += "&";
-
-        url += "grootteOperator=" + operator;
+        url += "&grootteOperator=" + operator;
         if (operator === "range")
             url += "&rangeMinGrootte=" + element.value + "&rangeMaxGrootte=" + maxValue;
         else
@@ -66,23 +53,16 @@ document.getElementById("zoek").onclick = function () {
         let operator = operatorSelect.options[operatorSelect.selectedIndex].value;
         let maxValue = document.getElementById("maxGewicht").value;
 
-        if (url[url.length - 1] != '&')
-            url += "&";
-
-        url += "gewichtOperator=" + operator;
+        url += "&gewichtOperator=" + operator;
         if (operator === "range")
             url += "&rangeMinGewicht=" + element.value + "&rangeMaxGewicht=" + maxValue;
         else
             url += "&gewicht=" + element.value;
     }
 
-    if (url[url.length - 1] != '&')
-            url += "&";
-
     element = document.getElementById("orderBy");
-    url += "orderBy=" + element.options[element.selectedIndex].value;
+    url += "&orderBy=" + element.options[element.selectedIndex].value;
 
-    
     fetch(rooturl + url)
     .then(function (response) {
         response.json().then(ToonResultaten);
