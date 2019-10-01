@@ -56,9 +56,9 @@ return "Ram";
 // Stier 20 april tot 20 mei
 if((geboortedag >= 20 && geboortemaand === 4) || (geboortedag <= 20 && geboortemaand === 5))
 return "Stier";
-// Tweelingen 21 mei tot 20 juni
+// Tweeling 21 mei tot 20 juni
 if((geboortedag >= 21 && geboortemaand === 5) || (geboortedag <= 20 && geboortemaand === 6))
-return "Tweelingen";
+return "Tweeling";
 // Kreeft 21 juni tot 22 juli
 if((geboortedag >= 21 && geboortemaand === 6) || (geboortedag <= 22 && geboortemaand === 7))
 return "Kreeft";
