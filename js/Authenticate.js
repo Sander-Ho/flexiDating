@@ -1,4 +1,4 @@
-window.onload = function () {
+
            document.getElementById('submitKnop').addEventListener('click', function (e) {
                let nickname = document.getElementById('nickname').value;
                let wachtwoord = document.getElementById('wachtwoord').value;
@@ -22,5 +22,3 @@ window.onload = function () {
                    .then(function (data) { console.log(data); })
                    .catch(function (error) { console.log(error); });
            });
-       }
-      
