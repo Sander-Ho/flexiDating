@@ -1,6 +1,6 @@
 "use strict";
 
-const rooturl = "https://scrumserver.tenobe.org/scrum/api"
+const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
 const profielDiv = document.getElementById("profiel");
 
@@ -23,18 +23,17 @@ document.getElementById("bekijkProfiel").onclick = function () {
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
     .then(function (response) { 
-        if (response.status == 200)
+        if (response.status === 200)
             response.json().then(ToonGegevensOpProfiel); 
         else {
             document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
-            profielDiv.style.display = "";
+            profielDiv.style.display = "none";
             errorBericht.style.display = "block";
-
             errorBericht.innerText = "Profiel bestaat niet.";
         }
     })
     .catch(function (error) {
-        profielDiv.style.display = "";
+        profielDiv.style.display = "none";
         errorBericht.style.display = "block";
         errorBericht.innerText = error.name;
     });
@@ -42,7 +41,7 @@ function ToonVolledigProfiel(profielId) {
 
 
 function ToonGegevensOpProfiel(data) {
-    errorBericht.style.display = "";
+    errorBericht.style.display = "none";
     profielDiv.style.display = "block";
 
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
