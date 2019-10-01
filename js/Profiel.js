@@ -24,7 +24,6 @@ function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
     .then(function (response) { 
         if (response.status == 200){
-            debugger;
             profielDiv.style.display = "block";
             errorBericht.style.display = "none";
             response.json().then(ToonGegevensOpProfiel); 
