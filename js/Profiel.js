@@ -1,6 +1,6 @@
 "use strict";
 
-const rooturl = "https://scrumserver.tenobe.org/scrum/api"
+const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
 const profielDiv = document.getElementById("profiel");
 
@@ -22,14 +22,14 @@ document.getElementById("bekijkProfiel").onclick = function () {
 
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
-    .then(function (response) { 
-        if (response.status == 200){
+    .then(function (response) {
+        if (response.status === 200){
             profielDiv.style.display = "block";
-            errorBericht.style.display = "none";
             response.json().then(ToonGegevensOpProfiel); 
         }   
         else {
             document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
+
             profielDiv.style.display = "none";
             errorBericht.style.display = "block";
 
@@ -39,6 +39,7 @@ function ToonVolledigProfiel(profielId) {
     .catch(function (error) {
         profielDiv.style.display = "none";
         errorBericht.style.display = "block";
+
         errorBericht.innerText = error.name;
     });
 }
@@ -102,5 +103,6 @@ function ToonGegevensOpProfiel(data) {
         document.getElementById("naam").innerText = "Naam: " + data.voornaam + " " + data.familienaam;
         document.getElementById("geboortedatum").innerText = "Geboortedatum: " + data.geboortedatum;
         document.getElementById("email").innerText = "E-Mail: " + data.email;
+
     }
 } 

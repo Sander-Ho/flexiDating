@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <label for="familienaam">familienaam</label>
+        <!--<label for="familienaam">familienaam</label>
         <input type="text" id="familienaam">
         <label for="familienaamFuzzy">fuzzy</label>
         <input type="checkbox" id="familienaamFuzzy"><br>
@@ -27,10 +27,10 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="date" id="geboortedatum"><br>
+        <input type="date" id="geboortedatum"><br>-->
 
-        <label for="email">email</label>
-        <input type="text" id="email">
+        <!--<label for="email">email</label>
+        <input type="text" id="email"><br>-->
 
         <label for="nickname">nickname</label>
         <input type="text" id="nickname">
@@ -43,16 +43,17 @@
         <input type="checkbox" id="beroepFuzzy"><br>
 
         <label for="sexe">geslacht</label>
-        <select name="gewichtOperator" id="gewichtOperator">
+        <select name="sexe" id="sexe">
+            <option value="%">alle geslachten</option>
             <option value="m">Man</option>
             <option value="v">Vrouw</option>
         </select><br>
 
         <label for="haarkleur">haarkleur</label>
-        <input type="text" id="haarkleur">
+        <input type="text" id="haarkleur"><br>
 
         <label for="oogkleur">oogkleur</label>
-        <input type="text" id="oogkleur">
+        <input type="text" id="oogkleur"><br>
 
         <label for="grootteOperator">grootte</label>
         <select name="grootteOperator" id="grootteOperator">
@@ -63,7 +64,8 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="number" id="grootte"><br>
+        <input type="number" id="grootte">
+        <input type="number" id="maxGrootte" hidden><br>
 
         <label for="gewichtOperator">gewicht</label>
         <select name="gewichtOperator" id="gewichtOperator">
@@ -74,13 +76,22 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="number" id="gewicht"><br>
+        <input type="number" id="gewicht">
+        <input type="number" id="maxGewicht" hidden><br>
 
         <label for="orderBy">sorteer op</label>
         <select name="orderBy" id="orderBy">
-            <option value="familienaam">familienaam</option>
+            <!--<option value="familienaam">familienaam</option>
             <option value="voornaam">voornaam</option>
             <option value="geboortedatum">geboortedatum</option>
+            <option value="email">email</option>-->
+            <option value="nickname">nickname</option>
+            <option value="beroep">beroep</option>
+            <option value="geslacht">geslacht</option>
+            <option value="haarkleur">haarkleur</option>
+            <option value="oogkleur">oogkleur</option>
+            <option value="grootte">grootte</option>
+            <option value="gewicht">gewicht</option>
         </select><br>
 
         <button id="zoek">zoek</button>

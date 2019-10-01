@@ -2,3 +2,14 @@
     width: 240px;
     height: 240px;
 }
+
+.profielKlein {
+    display: block;
+    border: 1px solid black;
+    float: left;
+}
+
+.profielKlein img {
+    width: 200px;
+    height: 200px;
+}
