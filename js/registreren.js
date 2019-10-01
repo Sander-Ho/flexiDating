@@ -3,12 +3,12 @@ const responseDiv = document.getElementById("response");
 const url = "https://scrumserver.tenobe.org/scrum/api/";
 const urlImg = "https://scrumserver.tenobe.org/scrum/img/";
 const fotos = ["no_image.png", "man_1.png", "man_2.png", "man_3.png", "man_4.png", "man_5.png", "man_6.png", "man_7.png", "man_8.png", "man_9.png", "man_10.png", "man_11.png", "man_default.png", "adl.png", "bram.png", "danira.png", "ilse_debruyne.png", "jv.png", "kurt_decaluwe.png", "paul_ampersand.png", "vanessa_vaneenoo.png", "zorro.png",
-"woman_1.png", "woman_2.png", "woman_3.png", "woman_4.png", "woman_5.png", "woman_6.png", "woman_7.png", "woman_8.png", "woman_9.png", "woman_10.png", "woman_11.png", "woman_12.png", "woman_13.png", "woman_default"];
+"woman_1.png", "woman_2.png", "woman_3.png", "woman_4.png", "woman_5.png", "woman_6.png", "woman_7.png", "woman_8.png", "woman_9.png", "woman_10.png", "woman_11.png", "woman_12.png", "woman_13.png", "woman_default.png"];
 const fotoSelect = document.getElementById("foto");
 for (const foto in fotos) {
     const opt = document.createElement('option');
     opt.value = fotos[foto];
-    opt.innerHTML = fotos[foto];
+    opt.innerText = fotos[foto].slice(0, -4);
     fotoSelect.appendChild(opt);
 }
 
