@@ -45,8 +45,8 @@ function ToonVolledigProfiel(profielId) {
 }
 function BerekenSterrenbeeld(datum) {
     const geboortedatum = new Date(datum);
-    const geboortedag = geboortedatum.getDay();
-    const geboortemaand = geboortedatum.getMonth();
+    const geboortedag = geboortedatum.getDate() + 1;
+    const geboortemaand = geboortedatum.getMonth() + 1;
 //Steenbok 22 december tot 19 januari
 if((geboortedag >= 22 && geboortemaand === 12) || (geboortedag <= 19 && geboortemaand === 1))
 return "Steenbok";
