@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="js/registreren.js" defer></script>
+	<link rel="stylesheet" href="/css/registreren.css"/>
 	<title>Aanmaken van gebruiker</title>
 </head>
 <body>
-<h1>Aanmaken van gebruiker</h1>
-<form method="post" action="https://scrumserver.tenobe.org/scrum/api/create.php">
-	<label for="familienaam">familienaam: <input type="text" name="familienaam"/><label>
-	<label for="voornaam">voornaam: <input type="text" name="voornaam"/><label>
-	<label for="geboortedatum">geboortedatum: <input type="date" name="geboortedatum"/><label>
-	<label for="email">email: <input type="text" name="email"/><label>
-	<label for="nickname">nickname: <input type="text" name="nickname"/><label>
-	<label for="foto">foto: <input type="text" name="foto"/><label>
-	<label for="beroep">beroep: <input type="text" name="beroep"/><label>
-	<label for="sexe">geslacht: <input type="text" name="sexe"/><label>
-	<label for="haarkleur">haarkleur: <input type="text" name="haarkleur"/><label>
-	<label for="oogkleur">oogkleur: <input type="text" name="oogkleur"/><label>
-	<label for="grootte">grootte: <input type="text" name="grootte"/><label>
-	<label for="gewicht">gewicht: <input type="text" name="gewicht"/><label>
-	<label for="wachtwoord1">wachtwoord: <input type="password" name="wachtwoord1"/><label>
-	<label for="wachtwoord2">wachtwoord bevestigen: <input type="password" name="wachtwoord2"/><label>
-	<label for="voornaam">voornaam: <input type="text" name="voornaam"/><label>
-</form>
+	<h1>Aanmaken van gebruiker</h1>
+	<img src="" id="fotoVoorbeeld"/>
+		<div id="inputCont">
+			<div id="links">
+				<label for="familienaam">familienaam: <input type="text" id="familienaam" autofocus/></label>
+				<label id="familienaamFout" class="fout">geen geldig familienaam</label>
+				<label for="voornaam">voornaam: <input type="text" id="voornaam"/></label>
+				<label id="voornaamFout" class="fout">geen geldig voornaam</label>
+				<label for="geboortedatum">geboortedatum: <input type="date" id="geboortedatum"/></label>
+				<label id="geboortedatumFout" class="fout">geen geldig geboortedatum</label>
+				<label id="leeftijdFout" class="fout">je moet 18 zijn</label>
+				<label for="email">email: <input type="text" id="email"/></label>
+				<label id="emailFout" class="fout">geen geldig email</label>
+				<label for="nickname">nicknaam: <input type="text" id="nickname"/></label>
+				<label id="nicknameFout" class="fout">geen geldig nicknaam</label>
+				<label for="foto">foto: 
+					<select id="foto">
+            			<option value="">(Maak een keuze)</option>
+
+					</select>
+				</label>
+				<label id="fotoFout" class="fout">selecteer een foto</label>
+				<label for="beroep">beroep: <input type="text" id="beroep"/></label>
+				<label id="beroepFout" class="fout">geen geldig beroep</label>
+			</div>
+			<div id="rechts" class="inputCont">
+				<label for="sexe">geslacht (m,v,x): 
+					<select id="sexe">
+            	<option value="">(Maak een keuze)</option>
+            	<option value="M">Man</option>
+            	<option value="V">Vrouw</option>
+            	<option value="X">X</option>
+        		</select></label>
+				<label id="sexeFout" class="fout">selecteer een geslacht</label>
+				<label for="haarkleur">haarkleur: <input type="text" id="haarkleur"/></label>
+				<label id="haarkleurFout" class="fout">geen geldig haarkleur</label>
+				<label for="oogkleur">oogkleur: <input type="text" id="oogkleur"/></label>
+				<label id="oogkleurFout" class="fout">geen geldig oogkleur</label>
+				<label for="grootte">grootte in cm: <input type="text" id="grootte"/></label>
+				<label id="grootteFout" class="fout">geen geldig grootte</label>
+				<label for="gewicht">gewicht in kg: <input type="text" id="gewicht"/></label>
+				<label id="gewichtFout" class="fout">geen geldig gewicht</label>
+				<label for="wachtwoord1">wachtwoord: <input type="password" id="wachtwoord1"/></label>
+				<label id="wachtwoord1Fout" class="fout">geen geldig wachtwoord</label>
+				<label for="wachtwoord2">wachtwoord bevestigen: <input type="password" id="wachtwoord2"/></label>
+				<label id="verschillendWachtwoordFout" class="fout">wachtwoord komt niet overeen</label>
+			</div>
+		</div>
+		<input id="registreren" type="submit" value="registreren"/>
+		<div id="response"></div>
 </body>
 </html>
