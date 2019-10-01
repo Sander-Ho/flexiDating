@@ -23,6 +23,7 @@ document.getElementById("bekijkProfiel").onclick = function () {
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
     .then(function (response) { 
+<<<<<<< HEAD
         if (response.status == 200){
             profielDiv.style.display = "block";
             errorBericht.style.display = "none";
@@ -31,13 +32,24 @@ function ToonVolledigProfiel(profielId) {
         else {
             document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
             profielDiv.style.display = "none";
+=======
+        if (response.status == 200)
+            response.json().then(ToonGegevensOpProfiel); 
+        else {
+            document.getElementsByTagName("title")[0].innerText = "Profiel bestaat niet - Flexi Dating";
+            profielDiv.style.display = "";
+>>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
             errorBericht.style.display = "block";
 
             errorBericht.innerText = "Profiel bestaat niet.";
         }
     })
     .catch(function (error) {
+<<<<<<< HEAD
         profielDiv.style.display = "none";
+=======
+        profielDiv.style.display = "";
+>>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
         errorBericht.style.display = "block";
         errorBericht.innerText = error.name;
     });
@@ -45,6 +57,7 @@ function ToonVolledigProfiel(profielId) {
 
 
 function ToonGegevensOpProfiel(data) {
+<<<<<<< HEAD
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
     document.getElementById("nickname").innerText = "Gebruikersnaam: " + data.nickname;
     document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
@@ -60,5 +73,25 @@ function ToonGegevensOpProfiel(data) {
         document.getElementById("naam").innerText = "Naam: " + data.voornaam + " " + data.familienaam;
         document.getElementById("geboortedatum").innerText = "Geboortedatum: " + data.geboortedatum;
         document.getElementById("email").innerText = "E-Mail: " + data.email;
+=======
+    errorBericht.style.display = "";
+    profielDiv.style.display = "block";
+
+    document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
+    document.getElementById("nickname").innerText = data.nickname;
+    document.getElementById("profielfoto").setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + data.foto);
+    document.getElementById ("profielfoto").setAttribute("alt", data.nickname);
+    document.getElementById("beroep").innerText = data.beroep;
+    document.getElementById("sexe").innerText = (data.sexe == "m" ? "Man" : "Vrouw");
+    document.getElementById("oogkleur").innerText = data.oogkleur;
+    document.getElementById("haarkleur").innerText = data.haarkleur;
+    document.getElementById("gewicht").innerText = data.gewicht;
+    document.getElementById("grootte").innerText = data.grootte;
+    
+    if (gebruikerId === profielId /* || ontgrendeld? */) {
+        document.getElementById("naam").innerText = data.voornaam + " " + data.familienaam;
+        document.getElementById("geboortedatum").innerText = data.geboortedatum;
+        document.getElementById("email").innerText = data.email;
+>>>>>>> abaa6e26667986bb641b6689976f4da787a8f729
     }
 }
