@@ -43,6 +43,8 @@ function ToonVolledigProfiel(profielId) {
         errorBericht.innerText = error.name;
     });
 }
+
+
 function BerekenSterrenbeeld(datum) {
     const geboortedatum = new Date(datum);
     const geboortedag = geboortedatum.getDate() + 1;
@@ -96,13 +98,27 @@ function ToonGegevensOpProfiel(data) {
     document.getElementById("haarkleur").innerText = "Haarkleur: " + data.haarkleur;
     document.getElementById("gewicht").innerText = "Gewicht: " + data.gewicht;
     document.getElementById("grootte").innerText = "Grootte: " + data.grootte;
+
     const sterrenbeeld = BerekenSterrenbeeld(data.geboortedatum);
     document.getElementById("sterrenbeeld").innerText = "sterrenbeeld: " + sterrenbeeld;
     document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png";
+    
     if (gebruikerId === profielId /* || ontgrendeld? */) {
-        document.getElementById("naam").innerText = "Naam: " + data.voornaam + " " + data.familienaam;
-        document.getElementById("geboortedatum").innerText = "Geboortedatum: " + data.geboortedatum;
-        document.getElementById("email").innerText = "E-Mail: " + data.email;
+        let element = document.getElementById("naam");
+        element.innerText = "Naam: " + data.voornaam + " " + data.familienaam;
+        element.removeAttribute("hidden");
 
+        element = document.getElementById("geboortedatum");
+        element.innerText = "Geboortedatum: " + data.geboortedatum;
+        element.removeAttribute("hidden");
+
+        element = document.getElementById("email");
+        element.innerText = "E-Mail: " + data.email;
+        element.removeAttribute("hidden");
+    }
+    else {
+        document.getElementById("naam").setAttribute("hidden", "");
+        document.getElementById("geboortedatum").setAttribute("hidden", "");
+        document.getElementById("email").setAttribute("hidden", "");
     }
 } 
