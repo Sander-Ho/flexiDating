@@ -1,49 +1,27 @@
-ul {
+#contacten {
+    height: 570px;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 60px;
     padding: 0;
-}
-  
-ul li {
-    max-width: 75%;
-    display:inline-block;
-    clear: both;
-    padding: 8px;
-    border-radius: 10px;
-    margin: 3px;
-    margin-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
     float: left;
-}
-  
-.contactBericht {
-    background: #eee;
-    border-bottom-left-radius: 0;
-    text-align: left;
-    float: left;
-}
-  
-.mijnBericht {
-    color: #fff;
-    background: #ff3300;
-    border-bottom-right-radius: 0;
-    text-align: right;
-    float: right;
 }
 
-ul li div {
+#contacten li div {
     width: 405px;
     height: 64px;
-    background-color: #ff3300;
+    background-color: rgb(255,69,61);
     margin-bottom: 10px;
     border-radius: 10px;
+    border: 2px black solid;
     position: relative;
 }
 
-ul li div p {
-    color: #fff;
+#contacten li div p {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.4em;
     text-align: center;
-    margin: 0 0 0 80px;
+    margin: 0 0 0 70px;
     position: absolute;
     top: 50%;
     -ms-transform: translateY(-50%);
@@ -51,13 +29,54 @@ ul li div p {
     float: left;
 }
 
-ul li div img {
+#contacten li div img {
     width: 50px;
     height: 50px;
     background-color: #fff;
     padding: 0;
     margin: 5px;
-    border: 1px #fff solid;
+    border: 2px black solid;
     border-radius: 30px;
     float: left;
+}
+  
+#gesprekken {
+    width: 500px;
+    padding: 0 0 0 20px;;
+    margin: 0;
+    float: left;
+}
+
+#gesprekken ul {
+    height: 570px;
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+#gesprekken li {
+    max-width: 80%;
+    display:inline-block;
+    clear: both;
+    padding: 8px;
+    border-radius: 10px;
+    margin: 3px;
+    margin-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+  
+#gesprekken .contactBericht {
+    background: #eee;
+    border-bottom-left-radius: 0;
+    text-align: left;
+    float: left;
+}
+  
+#gesprekken .mijnBericht {
+    color: #fff;
+    background: rgb(255,69,61);
+    border-bottom-right-radius: 0;
+    text-align: right;
+    float: right;
 }

@@ -3,8 +3,9 @@
 const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
 const contactenUl = document.getElementById("contacten");
+const gesprekkenUl = document.getElementById("gesprekken");
 
-let gebruikerId = 1;
+const gebruikerId = localStorage.getItem("id");
 
 
 LaadtBerichten(gebruikerId);
@@ -18,6 +19,7 @@ function LaadtBerichten(gebruikerId) {
     })
     .catch(function (error) {
         contactenUl.style.display = "none";
+        gesprekkenUl.style.display = "none";
         errorBericht.style.display = "block";
 
         errorBericht.innerText = error.name;
@@ -29,7 +31,7 @@ function ToonBerichten(data) {
     if (data.length > 0) {
         for (const gesprek of data) {
             
-            fetch(rooturl + '/profiel/read_one.php?id=' + (gesprek[0].vanId !== gebruikerId ? gesprek[0].naarId : gesprek[0].vanId))
+            fetch(rooturl + '/profiel/read_one.php?id=' + (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId))
             .then(function (resp) {
                 resp.json().then(function (profiel) {
                     const contactNaam = profiel.nickname;
@@ -49,16 +51,21 @@ function ToonBerichten(data) {
                     contactDiv.onclick = function () {
                         const berichten = document.getElementById(this.innerText + "_berichten");
                         
-                        if (berichten.style.display === "none")
-                        berichten.style.display = "block";
+                        if (berichten.style.display === "none") {
+                            const gesprekken = document.getElementById("gesprekken").getElementsByTagName("ul");
+                            for (const gesprek of gesprekken)
+                                gesprek.style.display = "none";
+
+                            berichten.style.display = "block";
+                        }
                         else
-                        berichten.style.display = "none";
+                            berichten.style.display = "none";
                     };
                     contactLi.appendChild(contactDiv);
                     
                     const gesprekUl = document.createElement("ul");
                     gesprekUl.setAttribute("id", contactNaam + "_berichten");
-                    gesprekUl.setAttribute("class", "gesprek");
+                    gesprekUl.setAttribute("class", "clearFix");
                     
                     for (const bericht of gesprek) {
                         const berichtLi = document.createElement("li");
@@ -72,7 +79,7 @@ function ToonBerichten(data) {
                         gesprekUl.appendChild(berichtLi);
                     }
                     gesprekUl.style.display = "none";
-                    contactLi.appendChild(gesprekUl);
+                    gesprekkenUl.appendChild(gesprekUl);
                     contactenUl.appendChild(contactLi);
                 });
             });            
@@ -80,6 +87,7 @@ function ToonBerichten(data) {
     }
     else {
         contactenUl.style.display = "none";
+        gesprekkenUl.style.display = "none";
         errorBericht.style.display = "block";
 
         errorBericht.innerText = "Geen berichten gevonden";

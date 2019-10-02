@@ -40,6 +40,7 @@
     height: 55px;
     margin: 0px;
     border: 2px solid black;
+    border-right: 0;
 }
 #hyperlinks li:last-child{
     border-radius: 0px 0px 20px 0px;
@@ -48,6 +49,7 @@
 #hyperlinks li:first-child{
     border-radius: 0px 0px 0px 20px;
     border: 2px solid black;
+    border-right: 0;
 }
 #hyperlinks{
     overflow: auto;
@@ -63,4 +65,24 @@ body {
     display: flex;
     padding: 0px;
     margin: 0px;
+}
+
+
+/*  clear  */
+.cf {
+    clear: both;
+}
+
+/* clearfix Hack  */
+.clearFix:before, .clearFix:after {
+    content: " ";
+    display: table;
+}
+.clearFix:after {
+    clear: both;
+}
+
+/*  enkel voor IE6/7  */
+.clearFix {
+    *zoom: 1;
 }
