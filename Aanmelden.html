@@ -3,6 +3,7 @@
 <head>
     <title>Aanmelden - Flexi Dating</title>
     <link rel="stylesheet" href="css/default.css">
+     <link rel="stylesheet" type="text/css" href="css/authenticate.css" />
    <script type="text/javascript" src="js/Authenticate.js" defer>
    </script>
 </head>
@@ -16,11 +17,17 @@
 	<li><a href="chat.html">chat</a></li>
 	<li><a href="iFeelLucky.html">I feel lucky</a></li>
 </ul>
-    <h1>Aanmelden van gebruiker</h1>
-    <form name="aanmeldenFormulier" method="post">
-        <label for="nickname">nickname: <input type="text" id="nickname" /></label>
-        <label for="wachtwoord">wachtwoord: <input type="password" id="wachtwoord" /></label>
-        <button type="button" id="submitKnop" name="submitKnop">Aanmelden</button>
-    </form>
+    <div class="container">
+        <div class="formContainer">
+            <div class="border">
+                <h1>Aanmelden van gebruiker</h1>
+                <form name="aanmeldenFormulier" id="aanmeldenFormulier" method="post">
+                    <label for="nickname">nickname: <input type="text" id="nickname" /></label>
+                    <label for="wachtwoord">wachtwoord: <input type="text" id="wachtwoord" /></label>
+                    <button type="button" id="submitKnop" name="submitKnop">Aanmelden</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
