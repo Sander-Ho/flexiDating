@@ -4,28 +4,17 @@ const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
 const profielDiv = document.getElementById("profiel");
 
-let gebruikerId;   /* id van de gebruiker */
+const gebruikerId = localStorage.getItem("id");
 let profielId;
 
-
-document.getElementById("bekijkProfiel").onclick = function () {
-    profielId = document.getElementById("profielIdInput").value;
-
-    if (document.getElementById("eigenProfiel").checked) {
-        gebruikerId = profielId;
-    }
-
-    ToonVolledigProfiel(profielId);
-}
-
-
-let qs = decodeURIComponent(window.location.search);
+const qs = decodeURIComponent(window.location.search);
 if(qs !== ""){
 profielId = qs.split('=')[1];
 if(!isNaN(profielId) && profielId !== null)
     ToonVolledigProfiel(profielId);
-
 }
+else
+    ToonVolledigProfiel(gebruikerId);
 
 document.getElementById("eigenProfiel").onclick = function() {
     ToonVolledigProfiel(localStorage.getItem("id"));
