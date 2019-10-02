@@ -3,7 +3,6 @@ let arrayLeden = new Array()
 const url = "https://scrumserver.tenobe.org/scrum/api/";
 
 window.onload = function() {
-
 	fetch(url + "profiel/read.php",
 	{
 		method: 'GET'	}

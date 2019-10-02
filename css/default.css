@@ -14,9 +14,6 @@
     display: block;
     float: left;
 }
-#zoekcontainer{
-    display: block;
-}
 #divIngelogd {
     float: right;
     border: 2px solid black;

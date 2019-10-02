@@ -1,13 +1,12 @@
-window.onload = function() {
 
   const waarde = localStorage.getItem("id");
-  const locatie = window.location.search.split('');
-  if(waarde === null && !(locatie !== "index.html" && locatie !== "Aanmelden.html" && locatie !== "registreren.html"))
+  const locatie = window.location.pathname.slice(1);
+  if(waarde === null && !(locatie === "index.html" || locatie === "aanmelden.html" || locatie === "registreren.html"))
   {
     window.location.href = "index.html";
 
   }
-	if(!isNaN(waarde))
+	if(!isNaN(waarde) && waarde !== null)
 	{
 		fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + waarde)
     	.then(function (response) {
@@ -15,7 +14,8 @@ window.onload = function() {
         	    response.json().then(ToonNaam); 
         	}   
     	});
-	}
+	
+
 };
 function ToonNaam(data) {
 	const ingelogd = document.getElementById("ingelogd");
