@@ -1,0 +1,72 @@
+﻿@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 80%;
+    position: relative;
+}
+
+#Pagewrapper {
+    Width: 60%;
+    background: #FD6943;
+    margin: auto;
+    height: 90%;
+    text-align: center;
+}
+
+header {
+    height: 20px;
+    background-color: red;
+    text-align: right;
+}
+
+#wrapper {
+    display: inline;
+    float: none;
+}
+
+
+foreground {
+    display: inline;
+    position: center;
+}
+
+
+.ImageBelt {
+    width: 240px;
+    max-height: 100%;
+    float: right;
+    margin: 3px;
+    padding: 3px;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#foreground #Registreerscherm {
+    width: auto;
+    height: auto;
+    display: inline;
+    position: center;
+}
+
+.fout {
+    display: none;
+}
+
+.footer {
+    clear: both;
+    position: relative;
+    padding-top: 50px;
+    color: black;
+    bottom: 5px;
+}
+
+.footer, a {
+    color: black;
+    margin: 0 2px;
+}
