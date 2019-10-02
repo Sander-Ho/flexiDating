@@ -135,7 +135,13 @@ function ToonResultaten(data) {
             element = document.createElement("p");
             element.innerText = gebruiker.grootte;
             li.appendChild(element);
-    
+            
+            element = document.createElement("button");
+            element.innerText = "Toevoegen aan favorieten";
+            element.onclick = function() {toevoegenFav(gebruiker.id);};
+            li.appendChild(element);
+
+
             resultatenUl.appendChild(li);
         }
     }
@@ -146,4 +152,23 @@ function ToonResultaten(data) {
         errorBericht.innerText = "Geen profielen gevonden";
     }
     
+}
+function toevoegenFav(idpersoon){
+        fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + idpersoon)
+        .then(function (response) {
+            if (response.status === 200){
+                response.json().then(toevoegenFavoriet); 
+            }   
+        });
+}
+function toevoegenFavoriet(data){
+    fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/like.php", {
+        "method": 'post',
+        "body": JSON.stringify({
+            "mijnId": localStorage.getItem("id"),
+            "anderId": data.id
+        })
+    })
+        
+        ;
 }

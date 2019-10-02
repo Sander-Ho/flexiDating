@@ -1,6 +1,5 @@
 "use strict";
-const messageLabel = document.getElementById("message");
-
+const message = document.getElementById("message");
 document.getElementById('submitKnop').onclick = function() {
   let nickname = document.getElementById('nickname').value;
   let wachtwoord = document.getElementById('wachtwoord').value;
