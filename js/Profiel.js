@@ -104,7 +104,7 @@ function ToonGegevensOpProfiel(data) {
     document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
     document.getElementById ("profielfoto").setAttribute("alt", data.nickname);
     document.getElementById("beroep").innerText = "Beroep: " + data.beroep;
-    document.getElementById("sexe").innerText = "Geslacht: " + (data.sexe == "m" ? "Man" : "Vrouw");
+    document.getElementById("sexe").innerText = "Geslacht: " + (data.sexe === "m" ? "Man" : "Vrouw");
     document.getElementById("oogkleur").innerText = "Oogkleur: " + data.oogkleur;
     document.getElementById("haarkleur").innerText = "Haarkleur: " + data.haarkleur;
     document.getElementById("gewicht").innerText = "Gewicht: " + data.gewicht;

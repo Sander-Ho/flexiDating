@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Unsubscribe</title>
+    <link rel="stylesheet" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/uitschrijven.css" />
+    <script type="text/javascript" src="js/uitschrijven.js" defer>
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="formContainer">
+            <div class="border">
+                <h1>Ben je zeker dat je wilt weggaan?</h1>
+                <button type="button" class="collapsible" id="buttonUitschrijven">Ja, ik ben zeker</button>
+                <form name="uitschrijvenFormulier" id="uitschrijvenFormulier" method="post">
+                    <label for="nickname">nickname: <input type="text" id="nickname" /></label>
+                    <label for="wachtwoord">wachtwoord: <input type="text" id="wachtwoord" /></label>
+                    <label id="message"></label>
+                    <button type="button" id="uitschrijvenKnop" name="uitschrijvenKnop">Uitschrijven</button>
+                </form>
+                <button type="button" class="collapsible" onclick="location.href='Main.html';">Nee, ik heb me bedacht.</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
