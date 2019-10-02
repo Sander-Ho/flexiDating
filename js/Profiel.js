@@ -13,12 +13,10 @@ profielId = qs.split('=')[1];
 if(!isNaN(profielId) && profielId !== null)
     ToonVolledigProfiel(profielId);
 }
-else
+else {
+    profielId = gebruikerId;
     ToonVolledigProfiel(gebruikerId);
-
-document.getElementById("eigenProfiel").onclick = function() {
-    ToonVolledigProfiel(localStorage.getItem("id"));
-};
+}
 
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
