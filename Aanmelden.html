@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Aanmelden - Flexi Dating</title>
-    <link rel="stylesheet" href="css/default.css">
-     <link rel="stylesheet" type="text/css" href="css/authenticate.css" />
-   <script type="text/javascript" src="js/Authenticate.js" defer>
-   </script>
+	<title>Aanmelden - Flexi Dating</title>
+	<link rel="stylesheet" href="css/default.css"/>
+	<link rel="stylesheet" type="text/css" href="css/authenticate.css" />
+	<script type="text/javascript" src="js/ingelogd.js" defer></script>
+	<script type="text/javascript" src="js/Authenticate.js" defer>
+	</script>
 </head>
 <body>
 	<ul>
-	<li><a href="index.html">Home</a></li>
-	<li><a href="registreren.html">registreren</a></li>
-	<li><a href="aanmelden.html">aanmelden</a></li>
-	<li><a href="profiel.html">profiel</a></li>
-	<li><a href="zoek.html">zoek</a></li>
-	<li><a href="chat.html">chat</a></li>
-	<li><a href="iFeelLucky.html">I feel lucky</a></li>
-</ul>
-    <div class="container">
-        <div class="formContainer">
-            <div class="border">
-                <h1>Aanmelden van gebruiker</h1>
-                <form name="aanmeldenFormulier" id="aanmeldenFormulier" method="post">
-                    <label for="nickname">nickname: <input type="text" id="nickname" /></label>
-                    <label for="wachtwoord">wachtwoord: <input type="text" id="wachtwoord" /></label>
-                    <button type="button" id="submitKnop" name="submitKnop">Aanmelden</button>
-                </form>
-            </div>
-        </div>
-    </div>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="registreren.html">registreren</a></li>
+		<li><a href="aanmelden.html">aanmelden</a></li>
+	</ul>
+	<div class="container">
+		<div class="formContainer">
+			<div class="border">
+				<h1>Aanmelden van gebruiker</h1>
+				<form name="aanmeldenFormulier" id="aanmeldenFormulier" method="post">
+					<label for="nickname">nickname: <input type="text" id="nickname" /></label>
+					<label for="wachtwoord">wachtwoord: <input type="password" id="wachtwoord" /></label>
+					
+					<label id="message"></label>
+					<button type="button" id="submitKnop" name="submitKnop">Aanmelden</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

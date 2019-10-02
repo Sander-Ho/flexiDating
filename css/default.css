@@ -2,7 +2,9 @@
     width: 240px;
     height: 240px;
 }
-
+#ingelogd, #uitloggen{
+    display: none;
+}
 .profielKlein {
     width: 240px;
     height: 474px;
@@ -11,6 +13,11 @@
     border: 1px solid black;
     display: block;
     float: left;
+}
+#divIngelogd {
+    float: right;
+    border: 2px solid black;
+    margin: 20px;
 }
 
 .profielKlein a {
