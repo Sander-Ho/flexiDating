@@ -1,6 +1,7 @@
 
   const waarde = localStorage.getItem("id");
-  const locatie = window.location.pathname.slice(1);
+  const locatieArray = window.location.pathname.split('/');
+  const locatie = locatieArray[locatieArray.length - 1]
   if(waarde === null && !(locatie === "index.html" || locatie === "aanmelden.html" || locatie === "registreren.html"))
   {
     window.location.href = "index.html";
