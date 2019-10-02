@@ -18,18 +18,18 @@ document.getElementById("bekijkProfiel").onclick = function () {
     ToonVolledigProfiel(profielId);
 }
 
-/*
+
 let qs = decodeURIComponent(window.location.search);
-qs = qs.substring(1);
-profielId = qs.split('=');
-if(!isNaN(profielId) && profielId !== undefined)
-    ToonVolledigProfiel(profielId[1]);
-*/
-document.getElementById("eigenProfiel").onclick = function() {
-    ToonVolledigProfiel(localStorage.getItem("id"));
+if(qs !== ""){
+profielId = qs.split('=')[1];
+if(!isNaN(profielId) && profielId !== null)
+    ToonVolledigProfiel(profielId);
+
 }
 
-
+document.getElementById("eigenProfiel").onclick = function() {
+    ToonVolledigProfiel(localStorage.getItem("id"));
+};
 
 function ToonVolledigProfiel(profielId) {
     fetch(rooturl + '/profiel/read_one.php?id=' + profielId)
