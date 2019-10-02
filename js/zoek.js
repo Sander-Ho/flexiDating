@@ -104,7 +104,7 @@ function ToonResultaten(data) {
     
             li.setAttribute("class", "profielKlein");
             element.innerText = gebruiker.nickname;
-            element.setAttribute("href", "profiel.html?profielId=" + gebruiker.id);
+            element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
             li.appendChild(element);
     
             element = document.createElement("img");
