@@ -2,10 +2,18 @@
 <html>
 <head>
 	<script src="js/registreren.js" defer></script>
+	<script type="text/javascript" src="js/ingelogd.js" defer></script>
 	<link rel="stylesheet" href="/css/registreren.css"/>
+    <link rel="stylesheet" href="css/default.css">
 	<title>Registratie - Flexi Dating</title>
 </head>
 <body>
+	<ul id="hyperlinks">
+	<li><a href="index.html">Home</a></li>
+	<li><a href="registreren.html">registreren</a></li>
+	<li><a href="aanmelden.html">aanmelden</a></li>
+</ul>
+
 	<h1>Aanmaken van gebruiker</h1>
 	<img src="" id="fotoVoorbeeld"/>
 		<div id="inputCont">
@@ -32,12 +40,12 @@
 				<label id="beroepFout" class="fout">geen geldig beroep</label>
 			</div>
 			<div id="rechts" class="inputCont">
-				<label for="sexe">geslach: 
+				<label for="sexe">geslacht: 
 					<select id="sexe">
             	<option value="">(Maak een keuze)</option>
-            	<option value="M">Man</option>
-            	<option value="V">Vrouw</option>
-            	<option value="X">X</option>
+            	<option value="m">Man</option>
+            	<option value="v">Vrouw</option>
+            	<option value="x">X</option>
         		</select></label>
 				<label id="sexeFout" class="fout">selecteer een geslacht</label>
 				<label for="haarkleur">haarkleur: <input type="text" id="haarkleur"/></label>

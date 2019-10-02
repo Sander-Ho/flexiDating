@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="js/profiel.js" defer></script>
+    <script type="text/javascript" src="js/ingelogd.js" defer></script>
+    <link rel="stylesheet" href="css/default.css"/>
     <title>profiel - Flexi Dating</title>
-    <link rel="stylesheet" href="css/default.css">
 </head>
 <body>
+    <ul id="hyperlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="profiel.html">profiel</a></li>
+    <li><a href="zoek.html">zoek</a></li>
+    <li><a href="chat.html">chat</a></li>
+    <li><a href="iFeelLucky.html">I feel lucky</a></li>
+</ul>
+<div id="divIngelogd">
+<label id="ingelogd"></label>
+<input id="uitloggen" type="button" value="uitloggen"></input>
+</div>
     <div>
         <label for="profielIdInput">profiel id</label>
         <input type="number" id="profielIdInput"><br>
-        <label for="eigenProfiel">Eigen profiel</label>
-        <input type="checkbox" id="eigenProfiel"><br>
+        <input type="button" id="eigenProfiel" value="toon eigen profiel"><br>
 
         <button id="bekijkProfiel">Bekijk profiel</button>
     </div>

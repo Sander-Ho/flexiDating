@@ -2,7 +2,9 @@
     width: 240px;
     height: 240px;
 }
-
+#ingelogd, #uitloggen{
+    display: none;
+}
 .profielKlein {
     width: 240px;
     height: 474px;
@@ -11,6 +13,11 @@
     border: 1px solid black;
     display: block;
     float: left;
+}
+#divIngelogd {
+    float: right;
+    border: 2px solid black;
+    margin: 20px;
 }
 
 .profielKlein a {
@@ -21,4 +28,39 @@
 .profielKlein img {
     width: 200px;
     height: 200px;
+}
+#hyperlinks a {
+    text-decoration: none;
+    font-size: 40px;
+    padding: 5px;
+    color: black;
+}
+#hyperlinks li {
+    background-color: rgb(255,69,61);
+    height: 55px;
+    margin: 0px;
+    border: 2px solid black;
+}
+#hyperlinks li:last-child{
+    border-radius: 0px 0px 20px 0px;
+    border: 2px solid black;
+}
+#hyperlinks li:first-child{
+    border-radius: 0px 0px 0px 20px;
+    border: 2px solid black;
+}
+#hyperlinks{
+    overflow: auto;
+    padding: 0px;
+    margin: 0px 0px 20px 0px;
+}
+body {
+     padding: 0px;
+    margin: 0px;
+}
+#hyperlinks li {
+    float: left;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
 }

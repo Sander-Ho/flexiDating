@@ -18,11 +18,16 @@ document.getElementById("bekijkProfiel").onclick = function () {
     ToonVolledigProfiel(profielId);
 }
 
-
+/*
 let qs = decodeURIComponent(window.location.search);
 qs = qs.substring(1);
 profielId = qs.split('=');
-ToonVolledigProfiel(profielId[1]);
+if(!isNaN(profielId) && profielId !== undefined)
+    ToonVolledigProfiel(profielId[1]);
+*/
+document.getElementById("eigenProfiel").onclick = function() {
+    ToonVolledigProfiel(localStorage.getItem("id"));
+}
 
 
 
@@ -70,9 +75,9 @@ return "Ram";
 // Stier 20 april tot 20 mei
 if((geboortedag >= 20 && geboortemaand === 4) || (geboortedag <= 20 && geboortemaand === 5))
 return "Stier";
-// Tweelingen 21 mei tot 20 juni
+// Tweeling 21 mei tot 20 juni
 if((geboortedag >= 21 && geboortemaand === 5) || (geboortedag <= 20 && geboortemaand === 6))
-return "Tweelingen";
+return "Tweeling";
 // Kreeft 21 juni tot 22 juli
 if((geboortedag >= 21 && geboortemaand === 6) || (geboortedag <= 22 && geboortemaand === 7))
 return "Kreeft";
@@ -107,7 +112,7 @@ function ToonGegevensOpProfiel(data) {
 
     const sterrenbeeld = BerekenSterrenbeeld(data.geboortedatum);
     document.getElementById("sterrenbeeld").innerText = "sterrenbeeld: " + sterrenbeeld;
-    document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png";
+    document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png"
     
     if (gebruikerId === profielId /* || ontgrendeld? */) {
         let element = document.getElementById("naam");
