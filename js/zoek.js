@@ -68,7 +68,7 @@ document.getElementById("zoek").onclick = function () {
         response.json().then(ToonResultaten);
     })
     .catch(function (error) {
-        resultatenUl.style.display = "";
+        resultatenUl.style.display = "none";
         errorBericht.style.display = "block";
 
         errorBericht.innerText = error.name;
@@ -117,7 +117,7 @@ function ToonResultaten(data) {
             li.appendChild(element);
     
             element = document.createElement("p");
-            element.innerText = (gebruiker.sexe == "m" ? "Man" : "Vrouw");
+            element.innerText = (gebruiker.sexe === "m" ? "Man" : "Vrouw");
             li.appendChild(element);
     
             element = document.createElement("p");
