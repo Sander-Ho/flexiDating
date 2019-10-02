@@ -29,27 +29,27 @@
     width: 200px;
     height: 200px;
 }
-#links a {
+#hyperlinks a {
     text-decoration: none;
     font-size: 40px;
     padding: 5px;
     color: black;
 }
-#links li {
+#hyperlinks li {
     background-color: rgb(255,69,61);
     height: 55px;
     margin: 0px;
     border: 2px solid black;
 }
-#links li:last-child{
+#hyperlinks li:last-child{
     border-radius: 0px 0px 20px 0px;
     border: 2px solid black;
 }
-#links li:first-child{
+#hyperlinks li:first-child{
     border-radius: 0px 0px 0px 20px;
     border: 2px solid black;
 }
-#links{
+#hyperlinks{
     overflow: auto;
     padding: 0px;
     margin: 0px 0px 20px 0px;
@@ -58,7 +58,7 @@ body {
      padding: 0px;
     margin: 0px;
 }
-#links li {
+#hyperlinks li {
     float: left;
     display: flex;
     padding: 0px;
