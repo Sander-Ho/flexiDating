@@ -14,6 +14,9 @@
     display: block;
     float: left;
 }
+#zoekcontainer{
+    display: block;
+}
 #divIngelogd {
     float: right;
     border: 2px solid black;
@@ -29,27 +32,27 @@
     width: 200px;
     height: 200px;
 }
-ul a {
+#links a {
     text-decoration: none;
     font-size: 40px;
     padding: 5px;
     color: black;
 }
-ul li {
+#links li {
     background-color: rgb(255,69,61);
     height: 55px;
     margin: 0px;
     border: 2px solid black;
 }
-ul li:last-child{
+#links li:last-child{
     border-radius: 0px 0px 20px 0px;
     border: 2px solid black;
 }
-ul li:first-child{
+#links li:first-child{
     border-radius: 0px 0px 0px 20px;
     border: 2px solid black;
 }
-ul{
+#links{
     overflow: auto;
     padding: 0px;
     margin: 0px 0px 20px 0px;
@@ -58,7 +61,7 @@ body {
      padding: 0px;
     margin: 0px;
 }
-ul li {
+#links li {
     float: left;
     display: flex;
     padding: 0px;
