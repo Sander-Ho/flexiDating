@@ -8,6 +8,13 @@
 #toevoegenFavoriet {
     display: none;
 }
+.fout{
+    margin: 0;
+    margin-bottom: 10px;
+    min-height: 20px;
+    display: none;
+    color: red;
+}
 .profielKlein {
     width: 200px;
     height: 520px;
@@ -36,13 +43,13 @@
 }
 #hyperlinks a {
     text-decoration: none;
-    font-size: 40px;
+    font-size: 36px;
     padding: 5px;
     color: black;
 }
 #hyperlinks li {
     background-color: rgb(255,69,61);
-    height: 55px;
+    height: 45px;
     margin: 0px;
     border: 2px solid black;
     border-right: 0;

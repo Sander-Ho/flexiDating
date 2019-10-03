@@ -1,5 +1,5 @@
 "use strict";
-
+let fout = false;
 const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
 const resultatenUl = document.getElementById("resultaten");
@@ -8,7 +8,7 @@ const resultatenUl = document.getElementById("resultaten");
 document.getElementById("zoek").onclick = function () {
     let url = "/profiel/search.php?";
     let element;
-
+    fout = false;
     while (resultatenUl.firstChild) {
         resultatenUl.removeChild(resultatenUl.firstChild);
     }
@@ -36,33 +36,40 @@ document.getElementById("zoek").onclick = function () {
     if ((element = document.getElementById("oogkleur")).value !== "")
         url += "&oogkleur=" + element.value;
 
-    if ((element = document.getElementById("grootte")).value != 0) {
+    if ((element = document.getElementById("grootte")).value != "") {
         let operatorSelect = document.getElementById("grootteOperator");
         let operator = operatorSelect.options[operatorSelect.selectedIndex].value;
         let maxValue = document.getElementById("maxGrootte").value;
-
+        ControleerIngevuldNr("grootte", 250, 100);
         url += "&grootteOperator=" + operator;
         if (operator === "range")
+        {
+            ControleerIngevuldNr("maxGrootte", 250, 100);
             url += "&rangeMinGrootte=" + element.value + "&rangeMaxGrootte=" + maxValue;
+        }
         else
             url += "&grootte=" + element.value;
     }
 
-    if ((element = document.getElementById("gewicht")).value != 0) {
+    if ((element = document.getElementById("gewicht")).value != "") {
         let operatorSelect = document.getElementById("gewichtOperator");
         let operator = operatorSelect.options[operatorSelect.selectedIndex].value;
         let maxValue = document.getElementById("maxGewicht").value;
-
+        ControleerIngevuldNr("gewicht", 400, 40);
         url += "&gewichtOperator=" + operator;
         if (operator === "range")
+        {
+            ControleerIngevuldNr("maxGewicht", 400, 40);
             url += "&rangeMinGewicht=" + element.value + "&rangeMaxGewicht=" + maxValue;
+        }
         else
             url += "&gewicht=" + element.value;
     }
 
     element = document.getElementById("orderBy");
     url += "&orderBy=" + element.options[element.selectedIndex].value;
-
+    if(fout)
+        return null;
     fetch(rooturl + url)
     .then(function (response) {
         response.json().then(ToonResultaten);
@@ -171,4 +178,13 @@ function toevoegenFavoriet(data){
     })
     
     ;
+}
+function ControleerIngevuldNr(element, max, min) {
+    const waarde = document.getElementById(element).value;
+    if (waarde === "" || waarde > max || isNaN(waarde) || waarde < min ) {
+        document.getElementById(element + "Fout").style.display = "block";
+        fout = true;
+    } else {
+        document.getElementById(element + "Fout").style.display = "none";
+    }
 }

@@ -17,15 +17,15 @@ const emailregex = new RegExp('^.+@.+\..+$');
 let allesok = true;
 document.getElementById("registreren").onclick = function() {    
     allesok = true;
-    const familienaam = controleerIngevuld("familienaam", 1000);
-    const voornaam = controleerIngevuld("voornaam", 1000);
-    const nickname = controleerIngevuld("nickname", 100);
-    const beroep = controleerIngevuld("beroep", 1000);
-    const oogkleur = controleerIngevuld("oogkleur", 50);
-    const haarkleur = controleerIngevuld("haarkleur", 50);
-    const gewicht = controleerIngevuldNr("gewicht", 400, 40);
-    const grootte = controleerIngevuldNr("grootte", 250, 100);
-    controleerIngevuld("wachtwoord1", 1000);
+    const familienaam = ControleerIngevuld("familienaam", 1000);
+    const voornaam = ControleerIngevuld("voornaam", 1000);
+    const nickname = ControleerIngevuld("nickname", 100);
+    const beroep = ControleerIngevuld("beroep", 1000);
+    const oogkleur = ControleerIngevuld("oogkleur", 50);
+    const haarkleur = ControleerIngevuld("haarkleur", 50);
+    const gewicht = ControleerIngevuldNr("gewicht", 400, 40);
+    const grootte = ControleerIngevuldNr("grootte", 250, 100);
+    ControleerIngevuld("wachtwoord1", 1000);
     const email = document.getElementById("email").value;
     if (!emailregex.test(email) || email.length > 1000) {
         allesok = false;
@@ -140,7 +140,7 @@ function BerekenLeeftijd(dateString) {
     }
     return leeftijd;
 }
-function controleerIngevuldNr(element, max, min) {
+function ControleerIngevuldNr(element, max, min) {
     const waarde = document.getElementById(element).value;
     if (waarde === "" || waarde > max || isNaN(waarde) || waarde < min ) {
         document.getElementById(element + "Fout").style.display = "block";
@@ -150,7 +150,7 @@ function controleerIngevuldNr(element, max, min) {
         return waarde;
     }
 }
-function controleerIngevuld(element, validatieLengte) {
+function ControleerIngevuld(element, validatieLengte) {
     const waarde = document.getElementById(element).value;
     if (waarde === "" || waarde.length > validatieLengte) {
         document.getElementById(element + "Fout").style.display = "block";
