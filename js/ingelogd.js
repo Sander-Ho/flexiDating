@@ -32,7 +32,7 @@ function ToonNaam(data) {
 	const uitloggen = document.getElementById("uitloggen");
 	ingelogd.style.display = "block";
 	uitloggen.style.display = "block";
-	ingelogd.innerText = "u bent ingelogd als " + data.nickname;
+	ingelogd.innerText = "Welkom, " + data.nickname;
 	uitloggen.onclick = function() {
 		localStorage.removeItem("id");
 		window.location.href = "index.html";
