@@ -1,19 +1,23 @@
 "use strict";
-var coll = document.getElementsByClassName("collapsible");
 
-for (var i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
+document.getElementById("collapsible").onclick = function () {
+
+    var content = document.getElementById("uitschrijvenFormulier")
         if (content.style.maxHeight) {
             content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+        } 
+        else {
+            content.style.maxHeight = "180px";
         }
-    });
-}
+    };
 
 document.getElementById('uitschrijvenKnop').onclick = function () {
+    if (document.getElementById('nickname').value == "" || document.getElementById('wachtwoord').value == "") {
+        message.style.color = "red";
+        message.innerText = "Beide velden moeten ingevuld worden";
+        return;
+    }
+
     let rooturl = "https://scrumserver.tenobe.org/scrum/api";
     let nickname = document.getElementById('nickname').value;
     let wachtwoord = document.getElementById('wachtwoord').value;
@@ -50,8 +54,10 @@ document.getElementById('uitschrijvenKnop').onclick = function () {
                 });
 
                 fetch(request)
-                    .then(function (resp) { return resp.json(); })
+                    .then(function (resp) { return resp.json();})
                     .then(function (data) { console.log(data); })
+                    .then(function () { localStorage.removeItem("id");
+                    window.location.href = "index.html"; })
                     .catch(function (error) { console.log(error); });
             }
             else {
@@ -59,7 +65,7 @@ document.getElementById('uitschrijvenKnop').onclick = function () {
                 if (response.status === 401) {
                     message.innerText = "incorrecte naam of wachtwoord";
                 } else {
-                    message.innerText = "er is een fout opgetreden bij het inloggen probeer opnieuw in een aantal minuten";
+                    message.innerText = "er is een fout opgetreden bij het uitschrijven probeer opnieuw in een aantal minuten";
                 }
             }
 
