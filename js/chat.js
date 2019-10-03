@@ -6,7 +6,13 @@ const contactenDiv = document.getElementById("contacten");
 const gesprekkenDiv = document.getElementById("gesprekken");
 
 const gebruikerId = localStorage.getItem("id");
+let nieuwContact = -1;
 
+
+                    //  controlleerd voor nieuw contact id
+const qs = decodeURIComponent(window.location.search);
+if (qs !== "")
+    nieuwContact = qs.split('=')[1];
 
 LaadtBerichten(gebruikerId);
 
@@ -28,6 +34,18 @@ function LaadtBerichten(gebruikerId) {
 
 
 function ToonBerichten(data) {
+                        //  indien nieuw contact, maakt dummy bericht voor dit contact aan
+    if (nieuwContact !== -1)
+        data.push([{ 
+            berichtId: "-1",
+            vanId: gebruikerId,
+            naarId: nieuwContact,
+            bericht: "",
+            partnerId: nieuwContact,
+            benIkZender: "1",
+            status: "nieuw"
+        }]);
+
     if (data.length > 0) {
         for (const gesprek of data) {
             const contactId = (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId);
@@ -61,10 +79,13 @@ function ToonBerichten(data) {
                     gesprekDiv.setAttribute("class", "clearFix");
 
                     const gesprekUl = document.createElement("ul");
-                    
-                    for (const bericht of gesprek) {
-                        LaadtBericht(bericht, gesprekUl);
+
+                    if (gesprek[0].berichtId !== -1) {
+                        for (const bericht of gesprek) {
+                            LaadtBericht(bericht, gesprekUl);
+                        }
                     }
+                    
                         //  input veld en verzend knop
                     const berichtInputDiv = document.createElement("div");
                     berichtInputDiv.setAttribute("class", "berichtInputDiv");
@@ -88,6 +109,9 @@ function ToonBerichten(data) {
                     
                     gesprekDiv.appendChild(gesprekUl);
                     gesprekDiv.style.display = "none";
+                        //  opent gesprek met nieuw contact indien nodig
+                    if (nieuwContact !== -1 && contactId === nieuwContact)
+                        gesprekDiv.style.display = "block";
                     gesprekkenDiv.appendChild(gesprekDiv);
                     contactenDiv.appendChild(contactLi);
                 });

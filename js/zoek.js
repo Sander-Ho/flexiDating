@@ -107,6 +107,7 @@ function ToonResultaten(data) {
 
         for (const gebruiker of data) {
             const li = document.createElement("li");
+            li.onclick = function () {window.location.href = "profiel.html?id=" + gebruiker.id; }
             let element = document.createElement("a");
             
             li.setAttribute("class", "profielKlein");

@@ -9,11 +9,12 @@ let profielId;
 
 const qs = decodeURIComponent(window.location.search);
 if(qs !== ""){
-profielId = qs.split('=')[1];
+    profielId = qs.split('=')[1];
 if(!isNaN(profielId) && profielId !== null)
     ToonVolledigProfiel(profielId);
 }
 else {
+    profielId = gebruikerId;
     ToonVolledigProfiel(gebruikerId);
 }
 
@@ -99,6 +100,7 @@ function ToonGegevensOpProfiel(data) {
     const sterrenbeeld = BerekenSterrenbeeld(data.geboortedatum);
     document.getElementById("sterrenbeeld").innerText = "sterrenbeeld: " + sterrenbeeld;
     document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png"
+    const gesprekKnop = document.getElementById("gesprekKnop");
     
     if (gebruikerId === profielId /* || ontgrendeld? */) {
         let element = document.getElementById("naam");
@@ -112,10 +114,14 @@ function ToonGegevensOpProfiel(data) {
         element = document.getElementById("email");
         element.innerText = "E-Mail: " + data.email;
         element.removeAttribute("hidden");
+        gesprekKnop.setAttribute("hidden", "");
     }
     else {
         document.getElementById("naam").setAttribute("hidden", "");
         document.getElementById("geboortedatum").setAttribute("hidden", "");
         document.getElementById("email").setAttribute("hidden", "");
+        gesprekKnop.onclick = function () {
+            window.location.href = "chat.html?nieuwGesprekId=" + profielId;
+        }
     }
 } 
