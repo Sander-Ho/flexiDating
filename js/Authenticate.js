@@ -1,6 +1,14 @@
 "use strict";
 const message = document.getElementById("message");
 document.getElementById('submitKnop').onclick = function() {
+  
+  if (document.getElementById('nickname').value == "" || document.getElementById('wachtwoord').value == "") {
+    message.style.color = "red";
+    message.innerText = "Beide velden moeten ingevuld worden";
+    console.log("2");
+    return;
+  }
+  
   let nickname = document.getElementById('nickname').value;
   let wachtwoord = document.getElementById('wachtwoord').value;
 
