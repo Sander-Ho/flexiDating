@@ -47,12 +47,20 @@
     float: left;
 }
 
-#gesprekken ul {
+#gesprekken > div {
     height: 570px;
-    padding: 10px;
+    padding: 5px;
+    margin: 0;
     border: 2px black solid;
     border-radius: 10px;
+    position: relative;
+}
+
+#gesprekken > div > ul {
+    height: 500px;
+    padding: 5px;
     overflow-y: auto;
+    
 }
 
 #gesprekken li {
@@ -78,5 +86,38 @@
     background: rgb(255,69,61);
     border-bottom-right-radius: 0;
     text-align: right;
+    float: right;
+}
+
+#gesprekken ul .berichtInputDiv {
+    height: 37px;
+    width: 460px;
+    padding: 10px 5px 10px 5px;
+    margin: 10px 0 0 0;
+    border-top: 2px solid black;
+    bottom: 0;
+    position: absolute;
+    float: left;
+}
+
+.berichtInput {
+    height: 19px;
+    width: 350px;
+    font-size: 1.02em;
+    padding: 8px;
+    border-color: silver;
+    border-radius: 10px;
+    overflow-y: auto;
+    resize: none;
+    float: left;
+}
+
+.berichtKnop {
+    color: #fff;
+    background: rgb(255,69,61);
+    font-size: 1.02em;
+    padding: 8px;
+    border: 1px solid silver;
+    border-radius: 10px;
     float: right;
 }
