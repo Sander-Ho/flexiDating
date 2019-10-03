@@ -39,5 +39,5 @@ document.getElementById('submitKnop').onclick = function() {
 };
 function LogIn(data) {
   localStorage.setItem("id", data.id);
-
+  window.location.href = "index.html";
 }
