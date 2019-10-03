@@ -103,8 +103,8 @@ function ToonResultaten(data) {
             let element = document.createElement("a");
     
             li.setAttribute("class", "profielKlein");
+            li.onclick = function () { window.location = "profiel.html?id=" + gebruiker.id; }
             element.innerText = gebruiker.nickname;
-            element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
             li.appendChild(element);
     
             element = document.createElement("img");
