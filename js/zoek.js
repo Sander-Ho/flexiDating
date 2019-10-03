@@ -101,41 +101,40 @@ function ToonResultaten(data) {
         for (const gebruiker of data) {
             const li = document.createElement("li");
             let element = document.createElement("a");
-    
+            
             li.setAttribute("class", "profielKlein");
-            li.setAttribute("class", "profielKlein");
-                        element.innerText = "naam: " + gebruiker.nickname;
-                        element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
-                        li.appendChild(element);
+            element.innerText = "naam: " + gebruiker.nickname;
+            element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
+            li.appendChild(element);
 
-                        element = document.createElement("img");
-                        element.setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + gebruiker.foto);
-                        element.setAttribute("alt", gebruiker.nickname);
-                        li.appendChild(element);
+            element = document.createElement("img");
+            element.setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + gebruiker.foto);
+            element.setAttribute("alt", gebruiker.nickname);
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "beroep: " + gebruiker.beroep;
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "beroep: " + gebruiker.beroep;
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "geslacht: " + (gebruiker.sexe == "m" ? "Man" : "Vrouw");
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "geslacht: " + (gebruiker.sexe == "m" ? "Man" : "Vrouw");
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "oogkleur: " + gebruiker.oogkleur;
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "oogkleur: " + gebruiker.oogkleur;
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "haarkleur: " + gebruiker.haarkleur;
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "haarkleur: " + gebruiker.haarkleur;
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "gewicht: " + gebruiker.gewicht;
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "gewicht: " + gebruiker.gewicht;
+            li.appendChild(element);
 
-                        element = document.createElement("p");
-                        element.innerText = "grootte: " + gebruiker.grootte;
-                        li.appendChild(element);
+            element = document.createElement("p");
+            element.innerText = "grootte: " + gebruiker.grootte;
+            li.appendChild(element);
             
             element = document.createElement("button");
             element.innerText = "Toevoegen aan favorieten";
@@ -155,12 +154,12 @@ function ToonResultaten(data) {
     
 }
 function toevoegenFav(idpersoon){
-        fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + idpersoon)
-        .then(function (response) {
-            if (response.status === 200){
-                response.json().then(toevoegenFavoriet); 
-            }   
-        });
+    fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + idpersoon)
+    .then(function (response) {
+        if (response.status === 200){
+            response.json().then(toevoegenFavoriet); 
+        }   
+    });
 }
 function toevoegenFavoriet(data){
     fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/like.php", {
@@ -170,6 +169,6 @@ function toevoegenFavoriet(data){
             "anderId": data.id
         })
     })
-        
-        ;
+    
+    ;
 }

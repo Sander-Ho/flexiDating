@@ -1,27 +1,44 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <title>Unsubscribe</title>
     <link rel="stylesheet" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/uitschrijven.css" />
-    <script type="text/javascript" src="js/uitschrijven.js" defer>
-    </script>
+    <script type="text/javascript" src="js/uitschrijven.js" defer></script>
+    <script type="text/javascript" src="js/ingelogd.js" defer></script>
 </head>
 <body>
+    <ul id="hyperlinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registreren.html">registreren</a></li>
+        <li><a href="aanmelden.html">aanmelden</a></li>
+        <li><a href="profiel.html">profiel</a></li>
+        <li><a href="zoek.html">zoek</a></li>
+        <li><a href="chat.html">chat</a></li>
+        <li><a href="iFeelLucky.html">I feel lucky</a></li>
+        <li><a href="favorieten.html">favorieten</a></li>
+        <li><a href="uitschrijven.html">uitschrijven</a></li>
+    </ul>
+    <div id="divIngelogd">
+            <label id="ingelogd"></label>
+            <input id="uitloggen" type="button" value="uitloggen"></input>
+            </div>
     <div class="container">
         <div class="formContainer">
             <div class="border">
                 <h1>Ben je zeker dat je wilt weggaan?</h1>
-                <button type="button" class="collapsible" id="buttonUitschrijven">Ja, ik ben zeker</button>
+                <button type="button" id="collapsible" id="buttonUitschrijven">Ja, ik ben zeker</button>
                 <form name="uitschrijvenFormulier" id="uitschrijvenFormulier" method="post">
                     <label for="nickname">nickname: <input type="text" id="nickname" /></label>
-                    <label for="wachtwoord">wachtwoord: <input type="text" id="wachtwoord" /></label>
+                    <label id="nicknameFout" class="fout">geen geldig nicknaam</label>
+                    <label for="wachtwoord">wachtwoord: <input type="password" id="wachtwoord" /></label>
+                    <label id="wachtwoordFout" class="fout">geen geldig wachtwoord</label>
                     <label id="message"></label>
                     <button type="button" id="uitschrijvenKnop" name="uitschrijvenKnop">Uitschrijven</button>
                 </form>
-                <button type="button" class="collapsible" onclick="location.href='Main.html';">Nee, ik heb me bedacht.</button>
+                <button type="button" onclick="location.href='index.html';">Nee, ik heb me
+                    bedacht.</button>
             </div>
         </div>
     </div>

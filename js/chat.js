@@ -2,8 +2,8 @@
 
 const rooturl = "https://scrumserver.tenobe.org/scrum/api";
 const errorBericht = document.getElementById("errorBericht");
-const contactenUl = document.getElementById("contacten");
-const gesprekkenUl = document.getElementById("gesprekken");
+const contactenDiv = document.getElementById("contacten");
+const gesprekkenDiv = document.getElementById("gesprekken");
 
 const gebruikerId = localStorage.getItem("id");
 
@@ -18,8 +18,8 @@ function LaadtBerichten(gebruikerId) {
         return response.json().then(ToonBerichten); 
     })
     .catch(function (error) {
-        contactenUl.style.display = "none";
-        gesprekkenUl.style.display = "none";
+        contactenDiv.style.display = "none";
+        gesprekkenDiv.style.display = "none";
         errorBericht.style.display = "block";
 
         errorBericht.innerText = error.name;
@@ -30,8 +30,8 @@ function LaadtBerichten(gebruikerId) {
 function ToonBerichten(data) {
     if (data.length > 0) {
         for (const gesprek of data) {
-            
-            fetch(rooturl + '/profiel/read_one.php?id=' + (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId))
+            const contactId = (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId);
+            fetch(rooturl + '/profiel/read_one.php?id=' + contactId)
             .then(function (resp) {
                 resp.json().then(function (profiel) {
                     const contactNaam = profiel.nickname;
@@ -48,11 +48,12 @@ function ToonBerichten(data) {
                     contactDiv.appendChild(contactImg);
                     contactDiv.appendChild(contactText);
 
+                    //  gesprek openen of sluiten
                     contactDiv.onclick = function () {
                         const berichten = document.getElementById(this.innerText + "_berichten");
                         
                         if (berichten.style.display === "none") {
-                            const gesprekken = document.getElementById("gesprekken").getElementsByTagName("ul");
+                            const gesprekken = document.querySelectorAll("#gesprekken > div");
                             for (const gesprek of gesprekken)
                                 gesprek.style.display = "none";
 
@@ -60,12 +61,18 @@ function ToonBerichten(data) {
                         }
                         else
                             berichten.style.display = "none";
+
+                        const berichtenUl = berichten.getElementsByTagName("ul")[0];
+                        berichtenUl.scrollTop = berichtenUl.scrollHeight - berichtenUl.clientHeight;
                     };
+
                     contactLi.appendChild(contactDiv);
                     
+                    const gesprekDiv = document.createElement("div");
+                    gesprekDiv.setAttribute("id", contactNaam + "_berichten");
+                    gesprekDiv.setAttribute("class", "clearFix");
+
                     const gesprekUl = document.createElement("ul");
-                    gesprekUl.setAttribute("id", contactNaam + "_berichten");
-                    gesprekUl.setAttribute("class", "clearFix");
                     
                     for (const bericht of gesprek) {
                         const berichtLi = document.createElement("li");
@@ -78,16 +85,82 @@ function ToonBerichten(data) {
                         
                         gesprekUl.appendChild(berichtLi);
                     }
-                    gesprekUl.style.display = "none";
-                    gesprekkenUl.appendChild(gesprekUl);
-                    contactenUl.appendChild(contactLi);
+                    const berichtInputDiv = document.createElement("div");
+                    berichtInputDiv.setAttribute("class", "berichtInputDiv");
+
+                    const berichtInput = document.createElement("textarea");
+                    berichtInput.setAttribute("class", "berichtInput");
+                    berichtInput.setAttribute("placeholder", "schrijf een bericht ...");
+                    berichtInputDiv.appendChild(berichtInput);
+                    
+                    const berichtKnop = document.createElement("button");
+                    berichtKnop.setAttribute("class", "berichtKnop");
+                    berichtKnop.innerText = "verstuur";
+                    
+                    //  bericht versturen
+                    berichtKnop.onclick = function () {
+                        const url = rooturl + "/bericht/post.php";
+                        let data = {
+                            vanId:gebruikerId,
+                            naarId:contactId,
+                            bericht:berichtInput.value,
+                            status:"verzonden"
+                        };
+
+                        let request = new Request(url, {
+                            method: 'POST',
+                            body: JSON.stringify(data),
+                            headers: new Headers({
+                                'Content-Type': 'application/json'
+                            })
+                        });
+
+                        fetch(request)
+                        .then( function (resp) { 
+                            if (resp.status === 201) {
+                                resp.json().then( function (data) { console.log(data); }); 
+                                
+                                while (contactenDiv.firstChild) {
+                                    contactenDiv.removeChild(contactenDiv.firstChild);
+                                }
+
+                                while (gesprekkenDiv.firstChild) {
+                                    gesprekkenDiv.removeChild(gesprekkenDiv.firstChild);
+                                }
+
+                                LaadtBerichten(gebruikerId);
+                            }
+                            else {
+                                contactenDiv.style.display = "none";
+                                gesprekkenDiv.style.display = "none";
+                                errorBericht.style.display = "block";
+
+                                errorBericht.innerText = resp.status + " - " + resp.statusText;
+                            }
+                        })
+                        .catch(function (error) { 
+                            contactenDiv.style.display = "none";
+                            gesprekkenDiv.style.display = "none";
+                            errorBericht.style.display = "block";
+
+                            errorBericht.innerText = error;
+                         });
+                    };
+
+                    berichtInputDiv.appendChild(berichtKnop);
+                    gesprekUl.appendChild(berichtInputDiv);
+
+                    gesprekDiv.style.display = "none";
+                    gesprekDiv.appendChild(gesprekUl);
+                    gesprekkenDiv.appendChild(gesprekDiv);
+                    contactenDiv.appendChild(contactLi);
                 });
             });            
         }
     }
     else {
-        contactenUl.style.display = "none";
-        gesprekkenUl.style.display = "none";
+        contactenDiv.style.display = "none";
+        gesprekkenDiv.style.display = "none";
         errorBericht.style.display = "block";
 
         errorBericht.innerText = "Geen berichten gevonden";
