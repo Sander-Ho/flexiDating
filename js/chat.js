@@ -80,7 +80,7 @@ function ToonBerichten(data) {
 
                     const gesprekUl = document.createElement("ul");
 
-                    if (gesprek[0].berichtId !== -1) {
+                    if (contactId !== nieuwContact) {
                         for (const bericht of gesprek) {
                             LaadtBericht(bericht, gesprekUl);
                         }
