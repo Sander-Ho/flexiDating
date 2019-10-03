@@ -85,8 +85,9 @@ function ToonBerichten(data) {
                     }
                     berichtInputDiv.appendChild(berichtKnop);
                     gesprekUl.appendChild(berichtInputDiv);
-
+                    
                     gesprekDiv.appendChild(gesprekUl);
+                    gesprekDiv.style.display = "none";
                     gesprekkenDiv.appendChild(gesprekDiv);
                     contactenDiv.appendChild(contactLi);
                 });
