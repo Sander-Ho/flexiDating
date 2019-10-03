@@ -1,7 +1,6 @@
 "use strict";
 let arrayLeden = new Array()
 const url = "https://scrumserver.tenobe.org/scrum/api/";
-
 window.onload = function() {
 	fetch(url + "profiel/read.php",
 	{
@@ -34,6 +33,8 @@ function ToonProfiel(profiel){
 	const sterrenbeeld = BerekenSterrenbeeld(profiel.geboortedatum);
     document.getElementById("sterrenbeeld").innerText = "sterrenbeeld: " + sterrenbeeld;
     document.getElementById("sterrenbeeldfoto").src = "images/" + sterrenbeeld + ".png";
+    document.getElementById("toevoegenFavoriet").onclick = function() {toevoegenFav(profiel.id);};
+    document.getElementById("toevoegenFavoriet").style.display = "block";
 }
 
 function BerekenSterrenbeeld(datum) {
@@ -76,4 +77,23 @@ return "Schorpioen";
 // Boogschutter 22 november tot 21 december
 if((geboortedag >= 22 && geboortemaand === 11) || (geboortedag <= 21 && geboortemaand === 12))
 return "Boogschutter";
+}
+function toevoegenFav(idpersoon){
+        fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + idpersoon)
+        .then(function (response) {
+            if (response.status === 200){
+                response.json().then(toevoegenFavoriet); 
+            }   
+        });
+}
+function toevoegenFavoriet(data){
+    fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/like.php", {
+        "method": 'post',
+        "body": JSON.stringify({
+            "mijnId": localStorage.getItem("id"),
+            "anderId": data.id
+        })
+    })
+        
+        ;
 }

@@ -103,38 +103,39 @@ function ToonResultaten(data) {
             let element = document.createElement("a");
     
             li.setAttribute("class", "profielKlein");
-            element.innerText = gebruiker.nickname;
-            element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
-            li.appendChild(element);
-    
-            element = document.createElement("img");
-            element.setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + gebruiker.foto);
-            element.setAttribute("alt", gebruiker.nickname);
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = gebruiker.beroep;
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = (gebruiker.sexe === "m" ? "Man" : "Vrouw");
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = gebruiker.oogkleur;
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = gebruiker.haarkleur;
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = gebruiker.gewicht;
-            li.appendChild(element);
-    
-            element = document.createElement("p");
-            element.innerText = gebruiker.grootte;
-            li.appendChild(element);
+            li.setAttribute("class", "profielKlein");
+                        element.innerText = "naam: " + gebruiker.nickname;
+                        element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
+                        li.appendChild(element);
+
+                        element = document.createElement("img");
+                        element.setAttribute("src", "https://scrumserver.tenobe.org/scrum/img/" + gebruiker.foto);
+                        element.setAttribute("alt", gebruiker.nickname);
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "beroep: " + gebruiker.beroep;
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "geslacht: " + (gebruiker.sexe == "m" ? "Man" : "Vrouw");
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "oogkleur: " + gebruiker.oogkleur;
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "haarkleur: " + gebruiker.haarkleur;
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "gewicht: " + gebruiker.gewicht;
+                        li.appendChild(element);
+
+                        element = document.createElement("p");
+                        element.innerText = "grootte: " + gebruiker.grootte;
+                        li.appendChild(element);
             
             element = document.createElement("button");
             element.innerText = "Toevoegen aan favorieten";

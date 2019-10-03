@@ -5,9 +5,12 @@
 #ingelogd, #uitloggen{
     display: none;
 }
+#toevoegenFavoriet {
+    display: none;
+}
 .profielKlein {
-    width: 240px;
-    height: 474px;
+    width: 200px;
+    height: 520px;
     margin: 2px;
     padding: 5px;
     border: 1px solid black;
@@ -15,7 +18,9 @@
     float: left;
 }
 #divIngelogd {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     border: 2px solid black;
     margin: 20px;
 }

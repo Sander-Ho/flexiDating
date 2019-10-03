@@ -14,7 +14,6 @@ if(!isNaN(profielId) && profielId !== null)
     ToonVolledigProfiel(profielId);
 }
 else {
-    profielId = gebruikerId;
     ToonVolledigProfiel(gebruikerId);
 }
 

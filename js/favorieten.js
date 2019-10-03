@@ -1,23 +1,25 @@
 "use strict";
 window.onload = function() {	
-	fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/read_one.php?profielid=" + localStorage.getItem("id"))
+	fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/read.php?profielId=" + localStorage.getItem("id"))
 	.then(function (response) {
 		if (response.status === 200){
-			debugger;
-			response.text().then(ToonFavorieten); 
+			response.json().then(ToonFavorieten); 
 		}
 		else {
 			favorieten.style.display = "none";
+		errorBericht.innerText = "Geen favorieten gevonden";
 		}
 	});
 
-}
+};
 function ToonFavorieten(data) {
 	if (data.length > 0) {
 		errorBericht.style.display = "none";
 
 		for (const favoriet of data) {
 			const li = document.createElement("li");
+			li.id = "favoriet" + favoriet.id;
+			document.getElementById("favorieten").appendChild(li);
 			let element;
 			fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + favoriet.anderId)
 			.then(function (response) {
@@ -26,7 +28,7 @@ function ToonFavorieten(data) {
 						element = document.createElement("a");
 
 						li.setAttribute("class", "profielKlein");
-						element.innerText = favorietPersoon.nickname;
+						element.innerText = "naam: " + favorietPersoon.nickname;
 						element.setAttribute("href", "profiel.html?id=" + favorietPersoon.id);
 						li.appendChild(element);
 
@@ -36,46 +38,46 @@ function ToonFavorieten(data) {
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = favorietPersoon.beroep;
+						element.innerText = "beroep: " + favorietPersoon.beroep;
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = (favorietPersoon.sexe == "m" ? "Man" : "Vrouw");
+						element.innerText = "geslacht: " + (favorietPersoon.sexe == "m" ? "Man" : "Vrouw");
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = favorietPersoon.oogkleur;
+						element.innerText = "oogkleur: " + favorietPersoon.oogkleur;
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = favorietPersoon.haarkleur;
+						element.innerText = "haarkleur: " + favorietPersoon.haarkleur;
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = favorietPersoon.gewicht;
+						element.innerText = "gewicht: " + favorietPersoon.gewicht;
 						li.appendChild(element);
 
 						element = document.createElement("p");
-						element.innerText = favorietPersoon.grootte;
+						element.innerText = "grootte: " + favorietPersoon.grootte;
 						li.appendChild(element);
+
+
+						element = document.createElement("p");
+						element.innerText = "status: " + favoriet.status;
+						li.appendChild(element);
+						
+						element = document.createElement("button");
+						element.innerText = "verwijderen van favorieten";
+						element.onclick = function() {verwijderenFav(favoriet.id);};
+						li.appendChild(element);
+
 					}); 
 				}   
 			});
-			element = document.createElement("p");
-			element.innerText = favoriet.status;
-			li.appendChild(element);
-
-			element = document.createElement("button");
-			element.innerText = "verwijderen van favorieten";
-			element.onclick = function() {verwijderenFav(favoriet.id);};
-			li.appendChild(element);
-
-
-			document.getElementById("favorieten").appendChild(li);
 		}
 	}
 	else {
-		resultatenUl.style.display = "none";
+		document.getElementById("favorieten").style.display = "none";
 		errorBericht.style.display = "block";
 
 		errorBericht.innerText = "Geen favorieten gevonden";
@@ -83,12 +85,14 @@ function ToonFavorieten(data) {
 }
 
 function verwijderenFav(favorietId){
-	fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/like.php", {
-		'method': 'post',
+	fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/delete.php", {
+		'method': 'DELETE',
 		'body': JSON.stringify({
 			'id': favorietId
 		})
-	})
-
-	;
+	}).then(function (response) {
+		if (response.status === 200) {
+			document.getElementById("favorieten").removeChild(document.getElementById("favoriet" + favorietId));
+		}
+	});
 }

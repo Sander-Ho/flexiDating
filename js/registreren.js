@@ -24,7 +24,7 @@ document.getElementById("registreren").onclick = function() {
     const oogkleur = controleerIngevuld("oogkleur", 50);
     const haarkleur = controleerIngevuld("haarkleur", 50);
     const gewicht = controleerIngevuldNr("gewicht", 400, 40);
-    const grootte = controleerIngevuldNr("grootte", 100, 250);
+    const grootte = controleerIngevuldNr("grootte", 250, 100);
     controleerIngevuld("wachtwoord1", 1000);
     const email = document.getElementById("email").value;
     if (!emailregex.test(email) || email.length > 1000) {
@@ -112,9 +112,11 @@ function Verwerkresponse(response) {
 }
 function ToonMessage(data) {
     if(data.hasOwnProperty('id'))
+    {
         responseDiv.innerText = data.message + "    dit is jouw ID: " + data.id;
         localStorage.setItem("id", data.id);
         window.location.href = "index.html";
+    }
     else
         responseDiv.innerText = data.message;
 }
