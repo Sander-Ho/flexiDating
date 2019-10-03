@@ -23,8 +23,8 @@ document.getElementById("registreren").onclick = function() {
     const beroep = controleerIngevuld("beroep", 1000);
     const oogkleur = controleerIngevuld("oogkleur", 50);
     const haarkleur = controleerIngevuld("haarkleur", 50);
-    const gewicht = controleerIngevuldNr("gewicht");
-    const grootte = controleerIngevuldNr("grootte");
+    const gewicht = controleerIngevuldNr("gewicht", 400, 40);
+    const grootte = controleerIngevuldNr("grootte", 100, 250);
     controleerIngevuld("wachtwoord1", 1000);
     const email = document.getElementById("email").value;
     if (!emailregex.test(email) || email.length > 1000) {
@@ -113,6 +113,8 @@ function Verwerkresponse(response) {
 function ToonMessage(data) {
     if(data.hasOwnProperty('id'))
         responseDiv.innerText = data.message + "    dit is jouw ID: " + data.id;
+        localStorage.setItem("id", data.id);
+        window.location.href = "index.html";
     else
         responseDiv.innerText = data.message;
 }
@@ -136,9 +138,9 @@ function BerekenLeeftijd(dateString) {
     }
     return leeftijd;
 }
-function controleerIngevuldNr(element) {
+function controleerIngevuldNr(element, max, min) {
     const waarde = document.getElementById(element).value;
-    if (waarde === "" || waarde.length > 1000 || isNaN(waarde) || waarde < 0 ) {
+    if (waarde === "" || waarde > max || isNaN(waarde) || waarde < min ) {
         document.getElementById(element + "Fout").style.display = "block";
         allesok = false;
     } else {
