@@ -136,11 +136,6 @@ function ToonResultaten(data) {
             element.innerText = gebruiker.grootte;
             li.appendChild(element);
             
-            element = document.createElement("button");
-            element.innerText = "Toevoegen aan favorieten";
-            element.onclick = function() {toevoegenFav(gebruiker.id);};
-            li.appendChild(element);
-
 
             resultatenUl.appendChild(li);
         }
