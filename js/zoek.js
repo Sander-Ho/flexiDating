@@ -124,7 +124,11 @@ function ToonResultaten(data) {
             li.appendChild(element);
 
             element = document.createElement("p");
-            element.innerText = "geslacht: " + (gebruiker.sexe == "m" ? "Man" : "Vrouw");
+            var geslacht;
+            if(gebruiker.sexe == "m") {geslacht = "Geslacht: Man"}
+            else if(gebruiker.sexe == "v") {geslacht = "Geslacht: Vrouw"}
+            else {geslacht = "Geslacht: Niet-binair"};
+            element.innerText = geslacht;
             li.appendChild(element);
 
             element = document.createElement("p");
