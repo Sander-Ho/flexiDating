@@ -25,11 +25,11 @@ function ToonFavorieten(data) {
 			.then(function (response) {
 				if (response.status === 200){
 					response.json().then(function(favorietPersoon){
-						element = document.createElement("a");
+						element = document.createElement("p");
 
 						li.setAttribute("class", "profielKlein");
-						element.innerText = "naam: " + favorietPersoon.nickname;
-						element.setAttribute("href", "profiel.html?id=" + favorietPersoon.id);
+						element.innerText = favorietPersoon.nickname;
+						li.onclick = function () {window.location.href = "profiel.html?id=" + favorietPersoon.id; }
 						li.appendChild(element);
 
 						element = document.createElement("img");
@@ -68,7 +68,10 @@ function ToonFavorieten(data) {
 						
 						element = document.createElement("button");
 						element.innerText = "verwijderen van favorieten";
-						element.onclick = function() {verwijderenFav(favoriet.id);};
+						element.onclick = function() {
+							event.stopPropagation();
+							verwijderenFav(favoriet.id);
+						};
 						li.appendChild(element);
 
 					}); 

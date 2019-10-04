@@ -107,12 +107,11 @@ function ToonResultaten(data) {
 
         for (const gebruiker of data) {
             const li = document.createElement("li");
-            li.onclick = function () {window.location.href = "profiel.html?id=" + gebruiker.id; }
-            let element = document.createElement("a");
-            
             li.setAttribute("class", "profielKlein");
+            li.onclick = function () {window.location.href = "profiel.html?id=" + gebruiker.id; }
+            
+            let element = document.createElement("p");
             element.innerText = gebruiker.nickname;
-            element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
             li.appendChild(element);
 
             element = document.createElement("img");
@@ -146,7 +145,10 @@ function ToonResultaten(data) {
             
             element = document.createElement("button");
             element.innerText = "Toevoegen aan favorieten";
-            element.onclick = function() {toevoegenFav(gebruiker.id);};
+            element.onclick = function() {
+                event.stopPropagation();
+                toevoegenFav(gebruiker.id);
+            };
             li.appendChild(element);
 
 

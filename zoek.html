@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/ingelogd.js" defer></script>
     <title>zoek - Flexi Dating</title>
     <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/zoek.css">
 </head>
 <body>
     <ul id="hyperlinks">
@@ -18,21 +19,21 @@
 	<!-- <li><a href="uitschrijven.html">uitschrijven</a></li> -->
 </ul>
 <div id="divIngelogd">
-<label id="ingelogd"></label>
-<input id="uitloggen" type="button" value="uitloggen"></input>
+    <label id="ingelogd"></label>
+    <input id="uitloggen" type="button" value="uitloggen"></input>
 </div>
-    <div id="zoekcontainer">
-        <!--<label for="familienaam">familienaam</label>
+<div id="zoekcontainer" class="clearFix">
+        <!--<label for="familienaam">familienaam:</label>
         <input type="text" id="familienaam">
         <label for="familienaamFuzzy">fuzzy</label>
-        <input type="checkbox" id="familienaamFuzzy"><br>
-
-        <label for="voornaam">voornaam</label>
+        <input type="checkbox" id="familienaamFuzzy">
+        
+        <label for="voornaam">voornaam:</label>
         <input type="text" id="voornaam">
         <label for="voornaamFuzzy">fuzzy</label>
         <input type="checkbox" id="voornaamFuzzy"><br>
-
-        <label for="geboortedatumOperator">geboortedatum</label>
+        
+        <label for="geboortedatumOperator">geboortedatum:</label>
         <select name="geboortdatumOperator" id="geboortdatumOperator">
             <option value="gt">groter dan</option>
             <option value="st">kleiner dan</option>
@@ -41,35 +42,35 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="date" id="geboortedatum"><br>-->
-
-        <!--<label for="email">email</label>
-        <input type="text" id="email"><br>-->
-
-        <label for="nickname">nickname</label>
+        <input type="date" id="geboortedatum">-->
+        
+        <!--<label for="email">email:</label>
+        <input type="text" id="email">-->
+        
+        <label for="nickname">nickname:</label>
         <input type="text" id="nickname">
-        <label for="nicknameFuzzy">fuzzy</label>
-        <input type="checkbox" id="nicknameFuzzy"><br>
-
-        <label for="beroep">beroep</label>
+        <label for="nicknameFuzzy"><input type="checkbox" id="nicknameFuzzy">fuzzy</label>
+        
+        <label for="beroep">beroep:</label>
         <input type="text" id="beroep">
-        <label for="beroepFuzzy">fuzzy</label>
-        <input type="checkbox" id="beroepFuzzy"><br>
-
-        <label for="sexe">geslacht</label>
+        <label for="beroepFuzzy"><input type="checkbox" id="beroepFuzzy">fuzzy</label>
+        
+        <label for="sexe">geslacht:</label>
         <select name="sexe" id="sexe">
             <option value="%">alle geslachten</option>
             <option value="m">Man</option>
             <option value="v">Vrouw</option>
-        </select><br>
-
-        <label for="haarkleur">haarkleur</label>
-        <input type="text" id="haarkleur"><br>
-
-        <label for="oogkleur">oogkleur</label>
-        <input type="text" id="oogkleur"><br>
-
-        <label for="grootteOperator">grootte</label>
+        </select>
+        
+        <label for="haarkleur">haarkleur:</label>
+        <input type="text" id="haarkleur">
+        
+        <label for="oogkleur">oogkleur:</label>
+        <input type="text" id="oogkleur">
+        
+        <label for="grootte">grootte:</label>
+        <input type="number" id="grootte">
+        <label id="grootteFout" class="fout">geen geldige grootte</label>
         <select name="grootteOperator" id="grootteOperator">
             <option value="gt">groter dan</option>
             <option value="st">kleiner dan</option>
@@ -78,12 +79,12 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="number" id="grootte">
-        <label id="grootteFout" class="fout">geen geldige grootte</label>
-        <input type="number" id="maxGrootte" hidden><br>
+        <input type="number" id="maxGrootte" hidden>
         <label id="maxGrootteFout" class="fout">geen geldige grootte</label>
-
-        <label for="gewichtOperator">gewicht</label>
+        
+        <label for="gewicht">gewicht:</label>
+        <input type="number" id="gewicht">
+        <label id="gewichtFout" class="fout">geen geldig gewicht</label>
         <select name="gewichtOperator" id="gewichtOperator">
             <option value="gt">groter dan</option>
             <option value="st">kleiner dan</option>
@@ -92,12 +93,10 @@
             <option value="steq">kleiner dan of gelijk aan</option>
             <option value="range">tussen</option>
         </select>
-        <input type="number" id="gewicht">
-        <label id="gewichtFout" class="fout">geen geldig gewicht</label>
-        <input type="number" id="maxGewicht" hidden><br>
+        <input type="number" id="maxGewicht" hidden>
         <label id="maxGewichtFout" class="fout">geen geldig gewicht</label>
-
-        <label for="orderBy">sorteer op</label>
+        
+        <label for="orderBy">sorteer op:</label>
         <select name="orderBy" id="orderBy">
             <!--<option value="familienaam">familienaam</option>
             <option value="voornaam">voornaam</option>
@@ -111,7 +110,7 @@
             <option value="grootte">grootte</option>
             <option value="gewicht">gewicht</option>
         </select><br>
-
+        
         <button id="zoek">zoek</button>
     </div>
     <div>

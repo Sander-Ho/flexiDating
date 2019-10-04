@@ -1,0 +1,57 @@
+#zoekcontainer {
+    width: 200px;
+    margin: 0 0 20px 40px;
+    padding: 10px;
+    background-color: rgb(255,69,61);
+    border: 2px solid black;
+    border-radius: 20px;
+    position: relative;
+    float: left;
+}
+#zoekcontainer label {
+    padding: 10px 50px 5px 10px;
+    float: left;
+}
+#zoekcontainer input, #zoekcontainer select {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    float: left;
+}
+#zoekcontainer input {
+    width: 163px;
+}
+#zoekcontainer label > input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin: 3px 10px 0 10px;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
+#zoekcontainer button {
+    background-color: white;
+    font-size: 1.2em;
+    padding: 10px 20px 10px 20px;
+    margin: 15px 60px 5px 60px;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px; 
+}
+
+#resultaten {
+    /* min-width: 548px; */
+    /* max-width: 82.15%; */
+    max-width: 82.336875%;
+    height: 804px;
+    padding: 0 0 0 .62%;
+    margin: 0 0 0 .62%;
+    border-radius: 20px;
+    float: left;
+    overflow-y: auto;
+}
+#resultaten ul {
+    padding: 0;
+    margin: 0;
+}
