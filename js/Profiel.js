@@ -166,6 +166,7 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
     let nieuweOogkleur = document.getElementById('oogkleurNieuw').value;
     let nieuweSexe = document.getElementById('sexeNieuw').value;
     let nieuweWachtwoord = document.getElementById('wachtwoord1Nieuw').value;
+    let nieuweWachtwoord = document.getElementById('beroepNieuw').value;
 
     ControleerIngevuld("familienaamNieuw", 1000);
     ControleerIngevuld("voornaamNieuw", 1000);
@@ -283,7 +284,7 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
                 //we passen de voornaam aan en sturen ook dit terug zodat deze promise afgesloten kan worden                        
                 let urlUpdate = 'https://scrumserver.tenobe.org/scrum/api/profiel/update.php';
 
-                data['beroep'] = nieuweVoornaam;
+                data['beroep'] = nieuweBeroep;
                 data['email'] = nieuweEmail;
                 data['familienaam'] = nieuweFamilienaam;
                 data['foto'] = nieuweFoto;
