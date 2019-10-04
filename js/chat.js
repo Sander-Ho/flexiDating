@@ -6,13 +6,13 @@ const contactenDiv = document.getElementById("contacten");
 const gesprekkenDiv = document.getElementById("gesprekken");
 
 const gebruikerId = localStorage.getItem("id");
-let nieuwContact = -1;
+let nieuwContactId = -1;
 
 
-                    //  controlleerd voor nieuw contact id
+                    //  controlleerd voor nieuw contact id in url
 const qs = decodeURIComponent(window.location.search);
 if (qs !== "")
-    nieuwContact = qs.split('=')[1];
+    nieuwContactId = qs.split('=')[1];
 
 LaadtBerichten(gebruikerId);
 
@@ -34,21 +34,15 @@ function LaadtBerichten(gebruikerId) {
 
 
 function ToonBerichten(data) {
-                        //  indien nieuw contact, maakt dummy bericht voor dit contact aan
-    if (nieuwContact !== -1)
-        data.push([{ 
-            berichtId: "-1",
-            vanId: gebruikerId,
-            naarId: nieuwContact,
-            bericht: "",
-            partnerId: nieuwContact,
-            benIkZender: "1",
-            status: "nieuw"
-        }]);
+    if ((data.length > 0) || (nieuwContactId !== -1)) {
+        let nieuwContact = (nieuwContactId !== -1 ? true : false);
 
-    if (data.length > 0) {
         for (const gesprek of data) {
             const contactId = (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId);
+            
+                        //  controlleerd of het nieuwe contact al een contact is
+            if (contactId === nieuwContactId)
+                nieuwContact = false;
 
                         //  Zoekt de naam van het contactpersoon
             fetch(rooturl + '/profiel/read_one.php?id=' + contactId)
@@ -80,7 +74,7 @@ function ToonBerichten(data) {
 
                     const gesprekUl = document.createElement("ul");
 
-                    if (contactId !== nieuwContact) {
+                    if (gesprek[0].berichtId !== "-1") {
                         for (const bericht of gesprek) {
                             LaadtBericht(bericht, gesprekUl);
                         }
@@ -110,12 +104,24 @@ function ToonBerichten(data) {
                     gesprekDiv.appendChild(gesprekUl);
                     gesprekDiv.style.display = "none";
                         //  opent gesprek met nieuw contact indien nodig
-                    if (nieuwContact !== -1 && contactId === nieuwContact)
+                    if (nieuwContactId !== -1 && contactId === nieuwContactId)
                         gesprekDiv.style.display = "block";
                     gesprekkenDiv.appendChild(gesprekDiv);
                     contactenDiv.appendChild(contactLi);
                 });
-            });            
+            });   
+            
+                        //  indien nieuw contact, maakt dummy bericht voor dit contact aan
+            if ((gesprek[0].berichtId === data[data.length - 1][0].berichtId) && nieuwContact)
+                data.push([{ 
+                    berichtId: "-1",
+                    vanId: gebruikerId,
+                    naarId: nieuwContactId,
+                    bericht: "",
+                    partnerId: nieuwContactId,
+                    benIkZender: "1",
+                    status: "nieuw"
+                }]);
         }
     }
     else {
