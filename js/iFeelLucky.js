@@ -63,7 +63,7 @@ return "Tweeling";
 if((geboortedag >= 21 && geboortemaand === 6) || (geboortedag <= 22 && geboortemaand === 7))
 return "Kreeft";
 // Leeuw 23 juli tot 22 augustus
-if((geboortedag >= 20 && geboortemaand === 7) || (geboortedag <= 18 && geboortemaand === 8))
+if((geboortedag >= 23 && geboortemaand === 7) || (geboortedag <= 22 && geboortemaand === 8))
 return "Leeuw";
 // Maagd 23 augustus tot 22 september
 if((geboortedag >= 23 && geboortemaand === 8) || (geboortedag <= 22 && geboortemaand ===9))
