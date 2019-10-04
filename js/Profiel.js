@@ -146,6 +146,9 @@ function ToonGegevensOpProfiel(data) {
         element = document.getElementById("geboortedatum");
         element.innerText = "Geboortedatum: " + data.geboortedatum;
         element.removeAttribute("hidden");
+        
+        element = document.getElementById("aanpasKnop");
+        element.removeAttribute("hidden");
 
         element = document.getElementById("email");
         element.innerText = "E-Mail: " + data.email;
