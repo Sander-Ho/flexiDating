@@ -163,11 +163,11 @@ function ToonGegevensOpProfiel(data) {
     }
 }
 document.getElementById("aanpasKnop").onclick = function () {
-    if (document.getElementById("AanpassenProfiel").style.display == "none" || document.getElementById("AanpassenProfiel").style.display == null) {
-        document.getElementById("AanpassenProfiel").style.display = "block";
+    if (document.getElementById("AanpassenProfiel").style.display == "block") {
+        document.getElementById("AanpassenProfiel").style.display = "none";
     }
     else {
-        document.getElementById("AanpassenProfiel").style.display = "none";
+        document.getElementById("AanpassenProfiel").style.display = "block";
     }
 }
 
