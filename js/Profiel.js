@@ -101,16 +101,36 @@ function BerekenSterrenbeeld(datum) {
 
 function ToonGegevensOpProfiel(data) {
     //Profiel
+    var geslacht;
+    if(data.sexe == "m") {geslacht = "Geslacht: Man"}
+    if(data.sexe == "v") {geslacht = "Geslacht: Vrouw"}
+    else {geslacht = "Geslacht: Niet-binair"};
+
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
     document.getElementById("nickname").innerText = data.nickname;
     document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
     document.getElementById("profielfoto").setAttribute("alt", data.nickname);
     document.getElementById("beroep").innerText = "Beroep: " + data.beroep;
-    document.getElementById("sexe").innerText = "Geslacht: " + (data.sexe === "m" ? "Man" : "Vrouw");
+    document.getElementById("sexe").innerText = " " + geslacht;
     document.getElementById("oogkleur").innerText = "Oogkleur: " + data.oogkleur;
     document.getElementById("haarkleur").innerText = "Haarkleur: " + data.haarkleur;
     document.getElementById("gewicht").innerText = "Gewicht: " + data.gewicht;
     document.getElementById("grootte").innerText = "Grootte: " + data.grootte;
+
+    document.getElementById('beroepNieuw').value = data.beroep;
+    document.getElementById('voornaamNieuw').value = data.voornaam;
+    document.getElementById('familienaamNieuw').value = data.familienaam;
+    document.getElementById('emailNieuw').value = data.email;
+    document.getElementById('fotoNieuw').value = data.foto;
+    document.getElementById('geboortedatumNieuw').value = data.geboortedatum;
+    document.getElementById('gewichtNieuw').value = data.gewicht;
+    document.getElementById('grootteNieuw').value = data.grootte;
+    document.getElementById('haarkleurNieuw').value = data.haarkleur;
+    document.getElementById('nicknameNieuw').value = data.nickname;
+    document.getElementById('oogkleurNieuw').value = data.oogkleur;
+    document.getElementById('sexeNieuw').value = data.sexe;
+    document.getElementById('wachtwoord1Nieuw').value = data.wachtwoord;
+    document.getElementById('wachtwoord2Nieuw').value = data.wachtwoord;
 
     //Aanpas
     const sterrenbeeld = BerekenSterrenbeeld(data.geboortedatum);
@@ -166,7 +186,7 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
     let nieuweOogkleur = document.getElementById('oogkleurNieuw').value;
     let nieuweSexe = document.getElementById('sexeNieuw').value;
     let nieuweWachtwoord = document.getElementById('wachtwoord1Nieuw').value;
-    let nieuweWachtwoord = document.getElementById('beroepNieuw').value;
+    let nieuweBeroep = document.getElementById('beroepNieuw').value;
 
     ControleerIngevuld("familienaamNieuw", 1000);
     ControleerIngevuld("voornaamNieuw", 1000);
@@ -179,6 +199,7 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
     ControleerIngevuld("wachtwoord1Nieuw", 1000);
 
     const emailregex = new RegExp('^.+@.+\..+$');
+    allesok = true;
     const email = document.getElementById("emailNieuw").value;
     if (!emailregex.test(email) || email.length > 1000) {
         allesok = false;
@@ -190,8 +211,10 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
     const wachtwoord2 = document.getElementById("wachtwoord2Nieuw").value;
     if (wachtwoord1 !== wachtwoord2) {
         allesok = false;
+        document.getElementById("verschillendWachtwoordFout").innerText = "Wachtwoord moeten identiek zijn";
         document.getElementById("verschillendWachtwoordFout").style.display = "block";
-    } else {
+    }
+    else{
         document.getElementById("verschillendWachtwoordFout").style.display = "none";
     }
 
@@ -224,15 +247,6 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
         document.getElementById("geboortedatumNieuwFout").style.display = "none";
 
         document.getElementById("leeftijdNieuwFout").style.display = "none";
-    }
-    function ToonMessage(data) {
-        if (data.hasOwnProperty('id')) {
-            responseDiv.innerText = data.message + "    dit is jouw ID: " + data.id;
-            localStorage.setItem("id", data.id);
-            window.location.href = "index.html";
-        }
-        else
-            responseDiv.innerText = data.message;
     }
     document.getElementById("fotoNieuw").onchange = function () {
         const fotoString = document.getElementById("fotoNieuw").value;
@@ -315,3 +329,6 @@ document.getElementById("aanpassen").addEventListener('click', function (e) {
             });
     }
 });
+
+
+
