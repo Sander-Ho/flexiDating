@@ -3,9 +3,10 @@
     height: 680px;
     background-color: rgb(255,69,61);
     padding: 10px;
-    margin: auto;
+    margin-right: 35%;
     border: 2px solid black;
     border-radius: 20px;
+    float: right;
 }
 #profielfoto {
     width: 240px;
@@ -28,14 +29,6 @@
     font-weight: bold;
     padding-top: 10px;
 }
-#profiel button {
-    background-color: white;
-    font-size: 1.2em;
-    padding: 10px;
-    margin: 15px auto 0 auto;
-    border: 1px rgb(255,69,61) solid;
-    border-radius: 10px; 
-}
 #sterrenbeeldfoto {
     width: 60px;
     height: 60px;
@@ -45,69 +38,54 @@
     border: 2px solid black;
     border-radius: 40px;
     display: block;
-}/*
-#container{
+}
+#profiel button {
+    background-color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px;
+}
+#AanpassenProfiel, #aanpasKnop {
+    display: none;
+}
+
+#AanpassenProfiel {
+    width: 400px;
+    margin: 0 0 20px 40px;
+    padding: 10px;
+    background-color: rgb(255,69,61);
+    border: 2px solid black;
+    border-radius: 20px;
+    position: relative;
+    float: left;
+}
+#AanpassenProfiel p {
+    font-size: 1.2em;
+    font-weight: bold;
     text-align: center;
 }
-#profiel{
-    float:left;
-    width:40%;
-}
-#AanpassenProfiel{
-    display: none;
-    float: right;
-    width: 60%;
-}
-
-/*Registreren.css*/
-/*
-h1 {
-    font-size:25px;
-    font-weight:bold;
-    margin-right:200px;
-    margin-bottom:8px;
-    border-width:1px;
-    border-style:solid;
-    border-color:#b7ddf2;
-    padding-bottom:10px;
-}
-label{
-	height: 60px;
-	overflow: auto;
-    font-size:15px;
-    font-weight:bold;
-}
-label input,select{
-	display: block;
-    font-size:11px;
-    padding:4px 2px;
-    width:150px;
-}
-
-#inputCont{
-	padding: 20px;
-	overflow: auto;
-}
-#links{
-	margin: 10px;
-    margin-right: 50px;
-	width: 250px;
-	float: left;
-}
-#rechts{
-	margin: 10px;
-	width: 250px;
-	float: left;
-}
-.fout{
-    margin: 0;
-    margin-bottom: 10px;
-    min-height: 20px;
-    display: none;
-    color: red;
-}
-#fotoVoorbeeld {
-    display: none;
+#AanpassenProfiel label {
     width: 100px;
-    height: 100px; 
-}*/
+    height: 24px;
+    padding: 10px 50px 5px 10px;
+    float: left;
+}
+#AanpassenProfiel input, #AanpassenProfiel select {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    float: left;
+}
+ #AanpassenProfiel input {
+    width: 163px;
+}
+input#aanpassen {
+    background-color: white;
+    font-size: 1.2em;
+    padding: 10px 20px 10px 20px;
+    margin: 15px 120px 5px 120px;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px; 
+}

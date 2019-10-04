@@ -151,6 +151,8 @@ function ToonGegevensOpProfiel(data) {
         element.innerText = "E-Mail: " + data.email;
         element.removeAttribute("hidden");
         gesprekKnop.setAttribute("hidden", "");
+        document.getElementById("aanpasKnop").style.display = "block";
+        profielDiv.style.height = "740px";
     }
     else {
         document.getElementById("naam").setAttribute("hidden", "");
