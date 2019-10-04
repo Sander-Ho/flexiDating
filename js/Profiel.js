@@ -87,7 +87,7 @@ return "Boogschutter";
 
 function ToonGegevensOpProfiel(data) {
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
-    document.getElementById("nickname").innerText = "Gebruikersnaam: " + data.nickname;
+    document.getElementById("nickname").innerText = data.nickname;
     document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + data.foto;
     document.getElementById ("profielfoto").setAttribute("alt", data.nickname);
     document.getElementById("beroep").innerText = "Beroep: " + data.beroep;
@@ -120,6 +120,7 @@ function ToonGegevensOpProfiel(data) {
         document.getElementById("naam").setAttribute("hidden", "");
         document.getElementById("geboortedatum").setAttribute("hidden", "");
         document.getElementById("email").setAttribute("hidden", "");
+        gesprekKnop.style.display = "block";
         gesprekKnop.onclick = function () {
             window.location.href = "chat.html?nieuwGesprekId=" + profielId;
         }

@@ -35,7 +35,7 @@ function LaadtBerichten(gebruikerId) {
 
 function ToonBerichten(data) {
     if ((data.length > 0) || (nieuwContactId !== -1)) {
-        let nieuwContact = (nieuwContactId !== -1 ? true : false);
+        let nieuwContact = (nieuwContactId !== -1);
 
         for (const gesprek of data) {
             const contactId = (gesprek[0].vanId === gebruikerId ? gesprek[0].naarId : gesprek[0].vanId);
@@ -142,9 +142,12 @@ function ToonBerichten(data) {
                 gesprek.style.display = "none";
     
             berichten.style.display = "block";
+            document.getElementsByTagName("title")[0].innerText = "Chat met " + contactNaam + " - Flexi Dating";
         }
-        else
+        else {
             berichten.style.display = "none";
+            document.getElementsByTagName("title")[0].innerText = "Chat - Flexi Dating";
+        }
     
         const berichtenUl = berichten.getElementsByTagName("ul")[0];
                         //  bij start gesprek verplaatsen naar meest recente bericht

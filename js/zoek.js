@@ -111,7 +111,7 @@ function ToonResultaten(data) {
             let element = document.createElement("a");
             
             li.setAttribute("class", "profielKlein");
-            element.innerText = "naam: " + gebruiker.nickname;
+            element.innerText = gebruiker.nickname;
             element.setAttribute("href", "profiel.html?id=" + gebruiker.id);
             li.appendChild(element);
 
@@ -160,7 +160,10 @@ function ToonResultaten(data) {
         errorBericht.innerText = "Geen profielen gevonden";
     }
     
+    document.getElementsByTagName("title")[0].innerText = data.length + " zoekresultaten - Flexi Dating";
 }
+
+
 function toevoegenFav(idpersoon){
     fetch("https://scrumserver.tenobe.org/scrum/api/profiel/read_one.php?id=" + idpersoon)
     .then(function (response) {
@@ -169,6 +172,8 @@ function toevoegenFav(idpersoon){
         }   
     });
 }
+
+
 function toevoegenFavoriet(data){
     fetch("https://scrumserver.tenobe.org/scrum/api/favoriet/like.php", {
         "method": 'post',
@@ -180,6 +185,8 @@ function toevoegenFavoriet(data){
     
     ;
 }
+
+
 function ControleerIngevuldNr(element, max, min) {
     const waarde = document.getElementById(element).value;
     if (waarde === "" || waarde > max || isNaN(waarde) || waarde < min ) {
