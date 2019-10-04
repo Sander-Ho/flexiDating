@@ -45,4 +45,69 @@
     border: 2px solid black;
     border-radius: 40px;
     display: block;
+}/*
+#container{
+    text-align: center;
 }
+#profiel{
+    float:left;
+    width:40%;
+}
+#AanpassenProfiel{
+    display: none;
+    float: right;
+    width: 60%;
+}
+
+/*Registreren.css*/
+/*
+h1 {
+    font-size:25px;
+    font-weight:bold;
+    margin-right:200px;
+    margin-bottom:8px;
+    border-width:1px;
+    border-style:solid;
+    border-color:#b7ddf2;
+    padding-bottom:10px;
+}
+label{
+	height: 60px;
+	overflow: auto;
+    font-size:15px;
+    font-weight:bold;
+}
+label input,select{
+	display: block;
+    font-size:11px;
+    padding:4px 2px;
+    width:150px;
+}
+
+#inputCont{
+	padding: 20px;
+	overflow: auto;
+}
+#links{
+	margin: 10px;
+    margin-right: 50px;
+	width: 250px;
+	float: left;
+}
+#rechts{
+	margin: 10px;
+	width: 250px;
+	float: left;
+}
+.fout{
+    margin: 0;
+    margin-bottom: 10px;
+    min-height: 20px;
+    display: none;
+    color: red;
+}
+#fotoVoorbeeld {
+    display: none;
+    width: 100px;
+    height: 100px; 
+}*/
