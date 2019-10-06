@@ -20,12 +20,20 @@
     border-style: solid;
     padding: 10px 0px;
     margin: 0px 400px;
+        padding: 10px;
+    background-color: rgb(255,69,61);
+    border: 2px solid black;
+    border-radius: 20px;
 }
 #uitschrijvenFormulier {
     margin:10px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+#uitschrijvenFormulier .input{
+    padding: 5px 25px;
+    display: inline-block;
 }
 .fout{
     margin: 0;
