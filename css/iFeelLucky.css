@@ -1,0 +1,72 @@
+.container {
+    display: table;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#feelLuckyTop {
+    float: Left;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px 10px 10px 50px;
+    padding: 10px;
+    background-color: rgb(255,69,61);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#profiel {
+    width: 400px;
+    height: 680px;
+    background-color: rgb(255,69,61);
+    padding: 10px;
+    margin-right: 35%;
+    border: 2px solid black;
+    border-radius: 20px;
+    float: right;
+}
+#profielfoto {
+    width: 240px;
+    height: 240px;
+    background-color: white;
+    padding: 0;
+    margin: 10px auto 20px auto;
+    border: 2px solid black;
+    border-radius: 120px;
+    display: block;
+}
+#profiel p {
+    font-size: 1.2em;
+    padding-bottom: 5px;
+    margin: 0;
+    text-align: center;
+}
+#profiel p:first-child {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 10px;
+}
+#sterrenbeeldfoto {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    padding: 5px;
+    margin: 5px auto 5px auto;
+    border: 2px solid black;
+    border-radius: 40px;
+    display: block;
+}
+#profiel button {
+    background-color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px;
+}
