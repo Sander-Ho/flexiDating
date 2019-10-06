@@ -1,19 +1,35 @@
 .container {
+    display: table;
+    width: 100%;
+    position: relative;
     padding: 0;
     margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .formContainer {
+    display: table-cell;
     text-align: center;
     vertical-align: middle;
 }
+
 .border {
     border-style: solid;
     padding: 10px 0px;
-    margin: 0px 400px;
+    margin: 100px 400px;
+    padding: 10px;
+    background-color: rgb(255,69,61);
+    border: 2px solid black;
+    border-radius: 20px;
 }
 #message{
-    display: none;
+    margin: 0;
+    margin-bottom: 10px;
+    min-height: 20px;
+    color: black;
 }
 #aanmeldenFormulier{
     overflow: auto;
@@ -25,6 +41,10 @@
     margin: 10px;
 }
 #submitKnop {
-    margin: 20px 60px 20px 20px;
-    float: right;
+    background-color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px;
 }
