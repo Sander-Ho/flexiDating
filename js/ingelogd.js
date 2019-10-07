@@ -1,3 +1,4 @@
+"use strict";
 const waarde = localStorage.getItem("id");
 const locatieArray = window.location.pathname.split('/');
 const locatie = locatieArray[locatieArray.length - 1];
