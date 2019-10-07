@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<script src="js/registreren.js" defer></script>
-	<link rel="stylesheet" href="/css/registreren.css"/>
-    <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="/css/registreren.css" />
+	<link rel="stylesheet" href="css/default.css">
 	<title>Registratie - Flexi Dating</title>
 </head>
+
 <body>
 	<ul id="hyperlinks">
-	<li><a href="index.html">Home</a></li>
-	<li class="selected"><a href="registreren.html">registreren</a></li>
-	<li><a href="aanmelden.html">aanmelden</a></li>
-</ul>
+		<li><a href="index.html">Home</a></li>
+		<li class="selected"><a href="registreren.html">registreren</a></li>
+		<li><a href="aanmelden.html">aanmelden</a></li>
+	</ul>
+	<div class=container>
+		<div class=formContainer>
+			<h1>Aanmaken van gebruiker</h1>
+			
+			<div class="border">
+					<img src="" id="fotoVoorbeeld" />
+				<div id="links">
+					<label for="familienaam">familienaam: <input type="text" id="familienaam" autofocus /></label>
+					<label id="familienaamFout" class="fout">geen geldige familienaam</label>
+					<label for="voornaam">voornaam: <input type="text" id="voornaam" /></label>
+					<label id="voornaamFout" class="fout">geen geldige voornaam</label>
+					<label for="geboortedatum">geboortedatum: <input type="date" id="geboortedatum" /></label>
+					<label id="geboortedatumFout" class="fout">geen geldige geboortedatum</label>
+					<label id="leeftijdFout" class="fout">je moet tussen 18 en 125 zijn</label>
+					<label for="email">email: <input type="text" id="email" /></label>
+					<label id="emailFout" class="fout">geen geldige email</label>
+					<label for="nickname">nicknaam: <input type="text" id="nickname" /></label>
+					<label id="nicknameFout" class="fout">geen geldige nicknaam</label>
+					<label for="foto">foto:
+						<select id="foto">
+							<option value="">(Maak een keuze)</option>
 
-	<h1>Aanmaken van gebruiker</h1>
-	<img src="" id="fotoVoorbeeld"/>
-		<div id="inputCont">
-			<div id="links">
-				<label for="familienaam">familienaam: <input type="text" id="familienaam" autofocus/></label>
-				<label id="familienaamFout" class="fout">geen geldige familienaam</label>
-				<label for="voornaam">voornaam: <input type="text" id="voornaam"/></label>
-				<label id="voornaamFout" class="fout">geen geldige voornaam</label>
-				<label for="geboortedatum">geboortedatum: <input type="date" id="geboortedatum"/></label>
-				<label id="geboortedatumFout" class="fout">geen geldige geboortedatum</label>
-				<label id="leeftijdFout" class="fout">je moet tussen 18 en 125 zijn</label>
-				<label for="email">email: <input type="text" id="email"/></label>
-				<label id="emailFout" class="fout">geen geldige email</label>
-				<label for="nickname">nicknaam: <input type="text" id="nickname"/></label>
-				<label id="nicknameFout" class="fout">geen geldige nicknaam</label>
-				<label for="foto">foto: 
-					<select id="foto">
-            			<option value="">(Maak een keuze)</option>
+						</select>
+					</label>
+					<label id="fotoFout" class="fout">selecteer een foto</label>
+					<label for="beroep">beroep: <input type="text" id="beroep" /></label>
+					<label id="beroepFout" class="fout">geen geldig beroep</label>
+				</div>
+				<div id="rechts">
+					<label for="sexe">geslacht:
+						<select id="sexe">
+							<option value="">(Maak een keuze)</option>
+							<option value="m">Man</option>
+							<option value="v">Vrouw</option>
+							<option value="x">Niet-binair</option>
+						</select></label>
+					<label id="sexeFout" class="fout">selecteer een geslacht</label>
+					<label for="haarkleur">haarkleur: <input type="text" id="haarkleur" /></label>
+					<label id="haarkleurFout" class="fout">geen geldige haarkleur</label>
+					<label for="oogkleur">oogkleur: <input type="text" id="oogkleur" /></label>
+					<label id="oogkleurFout" class="fout">geen geldige oogkleur</label>
+					<label for="grootte">grootte in cm: <input type="text" id="grootte" /></label>
+					<label id="grootteFout" class="fout">geen geldige grootte</label>
+					<label for="gewicht">gewicht in kg: <input type="text" id="gewicht" /></label>
+					<label id="gewichtFout" class="fout">geen geldig gewicht</label>
+					<label for="wachtwoord1">wachtwoord: <input type="password" id="wachtwoord1" /></label>
+					<label id="wachtwoord1Fout" class="fout">geen geldig wachtwoord</label>
+					<label for="wachtwoord2">wachtwoord bevestigen: <input type="password" id="wachtwoord2" /></label>
+					<label id="verschillendWachtwoordFout" class="fout">wachtwoord komt niet overeen</label>
+				</div>
 
-					</select>
-				</label>
-				<label id="fotoFout" class="fout">selecteer een foto</label>
-				<label for="beroep">beroep: <input type="text" id="beroep"/></label>
-				<label id="beroepFout" class="fout">geen geldig beroep</label>
 			</div>
-			<div id="rechts" class="inputCont">
-				<label for="sexe">geslacht: 
-					<select id="sexe">
-            	<option value="">(Maak een keuze)</option>
-            	<option value="m">Man</option>
-            	<option value="v">Vrouw</option>
-            	<option value="x">Non-binair</option>
-        		</select></label>
-				<label id="sexeFout" class="fout">selecteer een geslacht</label>
-				<label for="haarkleur">haarkleur: <input type="text" id="haarkleur"/></label>
-				<label id="haarkleurFout" class="fout">geen geldige haarkleur</label>
-				<label for="oogkleur">oogkleur: <input type="text" id="oogkleur"/></label>
-				<label id="oogkleurFout" class="fout">geen geldige oogkleur</label>
-				<label for="grootte">grootte in cm: <input type="text" id="grootte"/></label>
-				<label id="grootteFout" class="fout">geen geldige grootte</label>
-				<label for="gewicht">gewicht in kg: <input type="text" id="gewicht"/></label>
-				<label id="gewichtFout" class="fout">geen geldig gewicht</label>
-				<label for="wachtwoord1">wachtwoord: <input type="password" id="wachtwoord1"/></label>
-				<label id="wachtwoord1Fout" class="fout">geen geldig wachtwoord</label>
-				<label for="wachtwoord2">wachtwoord bevestigen: <input type="password" id="wachtwoord2"/></label>
-				<label id="verschillendWachtwoordFout" class="fout">wachtwoord komt niet overeen</label>
-			</div>
+			<input id="registreren" type="submit" value="registreren" />
+			<div id="response"></div>
 		</div>
-		<input id="registreren" type="submit" value="registreren"/>
-		<div id="response"></div>
+	</div>
+
 </body>
+
 </html>
