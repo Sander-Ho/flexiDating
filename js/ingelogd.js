@@ -28,7 +28,7 @@ if(!isNaN(waarde) && waarde !== null)
 
 };
 function ToonNaam(data) {
-	const ingelogd = document.getElementById("ingelogd");
+	const ingelogd = document.getElementById("divIngelogd");
 	const uitloggen = document.getElementById("uitloggen");
 	ingelogd.style.display = "block";
 	uitloggen.style.display = "block";
