@@ -59,7 +59,8 @@ document.getElementById("registreren").onclick = function() {
     document.getElementById("sexeFout").style.display = "none";
     }
     const geboortedatumWaarde = String(document.getElementById("geboortedatum").value);
-    if (geboortedatumWaarde === "" || BerekenLeeftijd(new Date(geboortedatumWaarde)) < 18 || BerekenLeeftijd(new Date(geboortedatumWaarde)) > 125)
+    const leeftijd = BerekenLeeftijd(new Date(geboortedatumWaarde));
+    if (geboortedatumWaarde === "" || leeftijd < 18 || leeftijd > 125)
     {
         allesok = false;
         if (geboortedatumWaarde === "") {
