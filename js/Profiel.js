@@ -103,7 +103,7 @@ function ToonGegevensOpProfiel(data) {
     //Profiel
     var geslacht;
     if(data.sexe == "m") {geslacht = "Geslacht: Man"}
-    if(data.sexe == "v") {geslacht = "Geslacht: Vrouw"}
+    else if(data.sexe == "v") {geslacht = "Geslacht: Vrouw"}
     else {geslacht = "Geslacht: Niet-binair"};
 
     document.getElementsByTagName("title")[0].innerText = data.nickname + " - Flexi Dating";
