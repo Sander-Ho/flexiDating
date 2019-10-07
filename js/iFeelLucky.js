@@ -20,7 +20,7 @@ function kiesProfielUitData(data){
 
 
 function ToonProfiel(profiel){
-	document.getElementById("nickname").innerText = "Gebruikersnaam: " + profiel.nickname;
+	document.getElementById("nickname").innerText = profiel.nickname;
 	document.getElementById("profielfoto").src = "https://scrumserver.tenobe.org/scrum/img/" + profiel.foto;
 	document.getElementById ("profielfoto").setAttribute("alt", profiel.nickname);
 	document.getElementById("beroep").innerText = "Beroep: " + profiel.beroep;

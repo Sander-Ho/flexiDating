@@ -70,3 +70,12 @@
     border: 1px rgb(255,69,61) solid;
     border-radius: 10px;
 }
+
+#vraagAan {
+    background-color: white;
+    font-size: 1.2em;
+    padding: 5px 10px 5px 10px;
+    margin: 15px 10px 5px 10px;
+    border: 1px rgb(255,69,61) solid;
+    border-radius: 10px; 
+}
