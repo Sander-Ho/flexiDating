@@ -1,4 +1,3 @@
-
 const waarde = localStorage.getItem("id");
 const locatieArray = window.location.pathname.split('/');
 const locatie = locatieArray[locatieArray.length - 1];
@@ -28,10 +27,9 @@ if(!isNaN(waarde) && waarde !== null)
 
 };
 function ToonNaam(data) {
-	const ingelogd = document.getElementById("divIngelogd");
+	const ingelogd = document.getElementById("ingelogd");
 	const uitloggen = document.getElementById("uitloggen");
-	ingelogd.style.display = "block";
-	uitloggen.style.display = "block";
+	document.getElementById("divIngelogd").style.display = "block";
 	ingelogd.innerText = "Welkom, " + data.nickname;
 	uitloggen.onclick = function() {
 		localStorage.removeItem("id");
