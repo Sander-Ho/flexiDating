@@ -136,6 +136,7 @@ body {
     background-color: rgb(238, 55, 49);
     cursor: pointer;
 }
+
 button:hover {
     cursor: pointer;
 }

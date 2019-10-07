@@ -27,11 +27,9 @@ if(!isNaN(waarde) && waarde !== null)
 
 };
 function ToonNaam(data) {
-	const ingelogd = document.getElementById("ingelogd");
-	const uitloggen = document.getElementById("uitloggen");
 	document.getElementById("divIngelogd").style.display = "block";
-	ingelogd.innerText = "Welkom, " + data.nickname;
-	uitloggen.onclick = function() {
+	document.getElementById("ingelogd").innerText = "Welkom, " + data.nickname;
+	document.getElementById("uitloggen").onclick = function() {
 		localStorage.removeItem("id");
 		window.location.href = "index.html";
 	};
